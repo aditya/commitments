@@ -1,0 +1,38 @@
+Usage:
+  commitments
+
+The available commands are:
+  make
+
+  diff
+  emit
+  commit
+
+  route task
+
+  create task
+  mark task todo
+  mark task done
+  update task
+  delete task
+  share task
+  unshare task
+  accept task
+  reject task
+  poke task
+
+  list tags
+  list users
+  list tasks
+
+  archive
+  
+  add comment
+  edit comment
+  delete comment
+
+  add tag
+
+  add user
+
+  init
