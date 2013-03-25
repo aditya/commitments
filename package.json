@@ -1,0 +1,19 @@
+{
+  "name": "commitments_server",
+  "version": "0.0.1",
+  "description": "Command line server system for commitments",
+  "dependencies": {
+    "coffee-script": "",
+    "js-yaml": "",
+    "docopt": "",
+    "underscore": "",
+    "colors": "",
+    "shellscript": "git://github.com/wballard/shellscript.git"
+  },
+  "engine": {
+    "node": ">=0.8.11"
+  },
+  "scripts": {
+    "test": "make test"
+  }
+}

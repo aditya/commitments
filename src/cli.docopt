@@ -1,15 +1,20 @@
+Commitments, the command line system for shared task management.
+
 Usage:
-  commitments
+    commitments [options] init
+    commitments --version
+    commitments --help
+
+Options:
+    --version     Print the current version
+    --help        Tells us all about it
 
 The available commands are:
   make
-
   diff
   emit
   commit
-
   route task
-
   create task
   mark task todo
   mark task done
@@ -20,19 +25,13 @@ The available commands are:
   accept task
   reject task
   poke task
-
   list tags
   list users
   list tasks
-
   archive
-  
   add comment
   edit comment
   delete comment
-
   add tag
-
   add user
-
   init

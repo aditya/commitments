@@ -27,9 +27,8 @@ like this:
 * You edit one or more task item files
 * Compute a logical diff between the edited files and the previous
 version
-* Augment the task item with the logical diff, the _diffness_
-* Run the task item through a code generation template to emit a list
-of named events
+* Run the task item paired with its diffness through a code 
+generation template to emit a list of named events
 * Execute the list of named events with the task as context
 
 # Web Service #
@@ -50,4 +49,4 @@ If you manage to delete local storage, or go to another computer, just
 put in your email address and commitments will send you a link.
 
 All links sent by commitments via email have a token indicating to whom,
-which logs you in automatically.
+    which logs you in automatically.
