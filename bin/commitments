@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-${DIR}/../node_modules/coffee-script/bin/coffee ${DIR}/../src/cli.litcoffee $*
-
+#!/usr/bin/env node
+require('coffee-script');
+require('../src/cli');

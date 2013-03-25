@@ -6,10 +6,12 @@ Usage:
     commitments --help
 
 Options:
-    --version     Print the current version
-    --help        Tells us all about it
+    --version           Print the current version
+    --help              Tells us all about it
+    --directory=<dir>   Use this directory, default is .
 
 The available commands are:
+    init          Set up a new commitments repository system
   make
   diff
   emit
