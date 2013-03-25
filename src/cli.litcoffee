@@ -2,10 +2,12 @@
     require('colors').setTheme
         info: 'green'
         error: 'red'
-    #all our commands
+    #all our commands, there has to be a way to do this
+    #without being so pedantic
     commands =
         init: require './init'
         add: require './add'
+        list: require './list'
 
 Making a little patch to require in order to get options, probably should
 for docopt and add this feature.

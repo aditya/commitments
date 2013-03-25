@@ -3,7 +3,7 @@ COMMITMENTS ?= ./bin/commitments --directory ./___
 
 .PHONY: test
 
-test: _init _add_user
+test: _init _add_user _list_user
 
 _init:
 	-rm -rf ./___
@@ -12,4 +12,10 @@ _init:
 
 _add_user: _init
 	$(COMMITMENTS) add user bob | tee /tmp/$@
+	$(DIFF) /tmp/$@ test/expected/$@
+	$(COMMITMENTS) add user jim | tee /tmp/$@
+
+_list_user: _add_user
+	$(COMMITMENTS) list users bob | tee /tmp/$@
+	$(COMMITMENTS) list users | tee -a /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@

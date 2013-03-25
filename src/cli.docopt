@@ -3,6 +3,7 @@ Commitments, the command line system for shared task management.
 Usage:
     commitments [options] init
     commitments [options] add (user) <name>
+    commitments [options] list (users) [<query>]
     commitments --version
     commitments --help
 
@@ -37,4 +38,3 @@ The available commands are:
   edit comment
   delete comment
   add tag
-  init
