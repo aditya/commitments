@@ -1,6 +1,2 @@
-{ '--version': false,
-  '--help': false,
-  '--directory': './___',
-  init: true }
 [32minitializing[39m
 [32mconfiguration: ___/.commitments[39m

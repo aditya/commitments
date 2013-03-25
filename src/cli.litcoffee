@@ -2,8 +2,10 @@
     require('colors').setTheme
         info: 'green'
         error: 'red'
+    #all our commands
     commands =
         init: require './init'
+        add: require './add'
 
 Making a little patch to require in order to get options, probably should
 for docopt and add this feature.
@@ -19,7 +21,6 @@ for docopt and add this feature.
 The actual command line processing.
 
     cli = require './cli.docopt'
-    console.log cli.options
 
 Full on help
 
@@ -33,7 +34,7 @@ Defaults, docopt isn't super smart about this part
         if name.slice(0,2) is '--'
             cli.options[name.slice(2)] = value
 
-Commands that actually do things
+Commands that actually do things are in other modules
 
     for name in _.keys cli.options
         if cli.options[name] and commands[name]

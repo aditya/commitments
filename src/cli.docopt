@@ -2,6 +2,7 @@ Commitments, the command line system for shared task management.
 
 Usage:
     commitments [options] init
+    commitments [options] add (user) <name>
     commitments --version
     commitments --help
 
@@ -12,6 +13,8 @@ Options:
 
 The available commands are:
     init          Set up a new commitments repository system
+    add user      Create a home directory and repository for a user
+    list users
   make
   diff
   emit
@@ -28,12 +31,10 @@ The available commands are:
   reject task
   poke task
   list tags
-  list users
   list tasks
   archive
   add comment
   edit comment
   delete comment
   add tag
-  add user
   init
