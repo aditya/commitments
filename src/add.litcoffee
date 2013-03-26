@@ -3,7 +3,9 @@ All about adding all kinds of things.
     path = require 'path'
     fs = require 'fs'
 
-Here are the things we know how to add, just functions in scope.
+Adding a user is about creating a git repository. We'll be nice and make sure
+the user name is lower case, but otherwise is expected to be an email and won't
+get any additional escaping.
 
     user = (options) ->
         user_directory = path.join options.directory, options['<username>'].toLowerCase()
