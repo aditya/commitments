@@ -8,6 +8,12 @@
         init: require './init'
         add: require './add'
         list: require './list'
+        update: require './update'
+
+This is going last on purpose, hooks into global, thus looking to only interfere
+after everyone else has had a normal experience.
+
+    require 'shellscript'
 
 Making a little patch to require in order to get options, probably should
 for docopt and add this feature.
@@ -36,7 +42,8 @@ Defaults, docopt isn't super smart about this part
         if name.slice(0,2) is '--'
             cli.options[name.slice(2)] = value
 
-Commands that actually do things are in other modules
+Commands that actually do things are in other modules, and are called here
+
 
     for name in _.keys cli.options
         if cli.options[name] and commands[name]

@@ -2,8 +2,9 @@ Commitments, the command line system for shared task management.
 
 Usage:
     commitments [options] init
-    commitments [options] add (user) <name>
-    commitments [options] list (users)
+    commitments [options] add user <username>
+    commitments [options] list users
+    commitments [options] update task
     commitments --version
     commitments --help
 
@@ -16,6 +17,9 @@ The available commands are:
     init          Set up a new commitments repository system
     add user      Create a home directory and repository for a user
     list users    List all the users
+    update task   This is the fundamental action, add/edit a task and run
+                  and subsequent required workflow or actions. Reads stdin.
+
   make
   diff
   emit
@@ -24,7 +28,6 @@ The available commands are:
   create task
   mark task todo
   mark task done
-  update task
   delete task
   share task
   unshare task

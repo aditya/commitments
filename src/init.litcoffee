@@ -4,7 +4,6 @@ of a root directory, then one git repository per user.
     yaml = require 'js-yaml'
     path = require 'path'
     fs = require 'fs'
-    require 'colors'
     module.exports = (options) ->
         console.log 'initializing'.info
 
