@@ -16,6 +16,5 @@ _add_user: _init
 	$(COMMITMENTS) add user jim | tee /tmp/$@
 
 _list_user: _add_user
-	$(COMMITMENTS) list users bob | tee /tmp/$@
-	$(COMMITMENTS) list users | tee -a /tmp/$@
+	$(COMMITMENTS) list users | tee /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@
