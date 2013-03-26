@@ -3,7 +3,7 @@ COMMITMENTS ?= ./bin/commitments --directory ./___
 
 .PHONY: test
 
-test: _init _add_user _list_user
+test: _init _add_user _list_user _task_create
 
 _init:
 	-rm -rf ./___
@@ -18,3 +18,6 @@ _add_user: _init
 _list_user: _add_user
 	$(COMMITMENTS) list users | tee /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@
+
+_task_create: _init
+	cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@

@@ -6,7 +6,7 @@ All about adding all kinds of things.
 Here are the things we know how to add, just functions in scope.
 
     user = (options) ->
-        user_directory = path.join options.directory, options['<username>']
+        user_directory = path.join options.directory, options['<username>'].toLowerCase()
         if not fs.existsSync user_directory
             fs.mkdirSync user_directory
         console.log $(git 'init', user_directory).info
