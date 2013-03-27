@@ -7,6 +7,7 @@ to then generate an actions script.
     yaml = require 'js-yaml'
     fs = require 'fs'
     _ = require 'lodash'
+    md5 = require 'MD5'
 
     module.exports = (options) ->
         file_name = options['<taskfilename>']
@@ -36,6 +37,13 @@ direction to figure what changed.
                 _.keys(prior_version.tags) or []
             removed_tags: _.difference _.keys(prior_version.tags) or [],
                 _.keys(current_version.tags) or []
+
+* Figuring changed comments is a tad more work, make a synthetic content key
+to figure the changed ones. Don't worry about removed ones, there isn't
+a workflow for that case since comments are just about notification.
+
+        current_comments = { md5(_.values(comment).join('')): comment
+            for comment in (current_comments?.discussion?.comments or {})}
 
 * Write out yaml that is the full current task, along with an array of changes
 
