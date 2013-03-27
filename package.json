@@ -8,6 +8,7 @@
     "docopt": "",
     "underscore": "",
     "colors": "",
+    "lodash": "",
     "shelljs": ""
   },
   "engine": {

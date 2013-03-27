@@ -6,6 +6,7 @@ to then generate an actions script.
     path = require 'path'
     yaml = require 'js-yaml'
     fs = require 'fs'
+    _ = require 'lodash'
 
     module.exports = (options) ->
         file_name = options['<taskfilename>']
@@ -22,11 +23,19 @@ to then generate an actions script.
 
 
 * Whip through the workflow affecting components, who, links, comments, and
-todo state, comparing the prior and current as hash sets, subtracting in either
+todo state, comparing the prior and current, subtracting in either
 direction to figure what changed.
 
         diff =
             current: current_version
+            added_links: _.difference _.keys(current_version.links) or [],
+                _.keys(prior_version.links) or []
+            removed_links: _.difference _.keys(prior_version.links) or [],
+                _.keys(current_version.links) or []
+            added_tags: _.difference _.keys(current_version.tags) or [],
+                _.keys(prior_version.tags) or []
+            removed_tags: _.difference _.keys(prior_version.tags) or [],
+                _.keys(current_version.tags) or []
 
 * Write out yaml that is the full current task, along with an array of changes
 
