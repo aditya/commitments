@@ -11,7 +11,7 @@ get any additional escaping.
         user_directory = path.join options.directory, options['<username>'].toLowerCase()
         if not fs.existsSync user_directory
             fs.mkdirSync user_directory
-        console.log $(git 'init', user_directory).info
+        console.log $("git init '#{user_directory}'").info
 
 And here is the actual add, just looking for the sub command as needed.
 

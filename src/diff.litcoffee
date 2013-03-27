@@ -3,6 +3,9 @@ of a task item from git, you figure out which parts have changed, added, or
 removed and then generate a yaml structure to be used as a rendering context
 to then generate an actions script.
 
+    module.exports = (options) ->
+        console.log $('ls').yellow
+
 * Look a prior version if any
 
 * Whip through the workflow affecting components, who, links, comments, and

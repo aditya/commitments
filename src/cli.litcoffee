@@ -13,18 +13,19 @@ modules and the command sub modules here.
         add: require './add'
         list: require './list'
         update: require './update'
+        diff: require './diff'
 
 This is going last on purpose, hooks into global, thus looking to only interfere
 after everyone else has had a normal experience.
 
-    require 'shellscript'
+    require './shellscript'
 
 Update the system path to allow self shelling.
 
     process.env['PATH'] = "#{path.join(__dirname, '../bin')}:#{process.env['PATH']}"
 
 Making a little patch to require in order to get options, probably should
-for docopt and add this feature.
+fork docopt and add this feature.
 
     docopt = require 'docopt'
     fs = require 'fs'
@@ -51,7 +52,6 @@ Defaults, docopt isn't super smart about this part
             cli.options[name.slice(2)] = value
 
 Commands that actually do things are in other modules, and are called here
-
 
     for name in _.keys cli.options
         if cli.options[name] and commands[name]

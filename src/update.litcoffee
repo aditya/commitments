@@ -13,7 +13,7 @@ Here is the outline of the workflow:
 
 * Make sure the owner exists, self shelling
 
-        commitments '--directory', options.directory, 'add', 'user', task.who
+        shell "commitments '--directory' '#{options.directory}' add user '#{task.who}'"
 
 * Write out the task in the owner's repository
 
@@ -25,7 +25,7 @@ Here is the outline of the workflow:
 * Add in the task to git, this is our workflow tracking mechanism, but in the
 correct directory.
 
-        git '--git-dir', "#{owner_directory}/.git", '--work-tree', owner_directory, 'add', file_name
+        shell "cd '#{owner_directory}'; git add #{file_name}"
 
 * Get the logical diff, relying on git, this will tell us data actions
 

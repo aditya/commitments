@@ -8,7 +8,7 @@
     "docopt": "",
     "underscore": "",
     "colors": "",
-    "shellscript": "git://github.com/wballard/shellscript.git"
+    "shelljs": ""
   },
   "engine": {
     "node": ">=0.8.11"
