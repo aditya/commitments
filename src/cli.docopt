@@ -5,7 +5,7 @@ Usage:
     commitments [options] add user <username>
     commitments [options] list users
     commitments [options] update task
-    commitments [options] diff
+    commitments [options] diff <taskfilename>
     commitments --version
     commitments --help
 

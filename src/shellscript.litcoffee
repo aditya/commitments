@@ -18,7 +18,6 @@ in plain old bash.
             return results.output
 
 And a just plain run function that pipes output, returning the exit code.
-:w
 
     global.shell = (shell_commands) ->
         shelljs.config.silent = false
