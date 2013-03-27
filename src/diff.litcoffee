@@ -42,8 +42,19 @@ direction to figure what changed.
 to figure the changed ones. Don't worry about removed ones, there isn't
 a workflow for that case since comments are just about notification.
 
-        current_comments = { md5(_.values(comment).join('')): comment
-            for comment in (current_comments?.discussion?.comments or {})}
+        contentKey = (object) ->
+            md5(_.values(object).join(''))
+
+        current_comments = _.zipObject(
+            _.map((current_version?.discussion?.comments or []), contentKey),
+            (current_version?.discussion?.comments or []))
+        prior_comments = _.zipObject(
+            _.map((prior_version?.discussion?.comments or []), contentKey),
+            (prior_version?.discussion?.comments or []))
+
+        diff.updated_comments = _.map(
+            _.difference(_.keys(current_comments), _.keys(prior_comments)),
+            (x) -> current_comments[x])
 
 * Write out yaml that is the full current task, along with an array of changes
 
