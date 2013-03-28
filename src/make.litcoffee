@@ -6,9 +6,9 @@ that reads data from input, and well, makes things...
         yaml = require 'js-yaml'
         fs = require 'fs'
         path = require 'path'
-        mustache = require 'mu2'
-        context = yaml.safeLoad(fs.readFileSync('/dev/stdin', 'utf8'))
-        stream = mustache.compileAndRender(
+        mustache = require 'mustache'
+        context = yaml.safeLoad fs.readFileSync('/dev/stdin', 'utf8')
+        template = fs.readFileSync(
             path.join(__dirname, 'templates', "#{options['<template>']}.mustache"),
-            context)
-        stream.pipe process.stdout
+            'utf8')
+        process.stdout.write mustache.render(template, context)

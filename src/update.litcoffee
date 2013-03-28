@@ -28,13 +28,10 @@ correct directory.
 
         shell "cd '#{owner_directory}'; git add #{file_name}"
 
-* Get the logical diff, relying on git, this will tell us data actions
+* Get the logical diff, relying on git, this will tell us data actions, and pipe
+it to generate the workflow.
 
-        logical_diff = yaml.safeLoad $("commitments --directory '#{options.directory}' diff '#{full_file_name}'")
-
-* Generate follow on actions from the diff
-
-        console.log yaml.safeDump(logical_diff).info
+        shell "commitments --directory '#{options.directory}' diff '#{full_file_name}' | commitments make workflow"
 
 * Execute followon actions, this is a generation step that will make a throw
 away shell script, and is the real 'hard part' where activity takes place

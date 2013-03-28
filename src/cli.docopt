@@ -28,8 +28,6 @@ The available commands are:
 
   emit
   commit
-  route task
-  create task
   mark task todo
   mark task done
   delete task
@@ -41,7 +39,5 @@ The available commands are:
   list tags
   list tasks
   archive
-  add comment
-  edit comment
-  delete comment
+  update comment
   add tag

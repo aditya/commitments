@@ -11,24 +11,33 @@ to then generate an actions script.
 
     module.exports = (options) ->
         file_name = options['<taskfilename>']
+        #handy helpers
+        contentKey = (object) ->
+            md5(_.values(object).join(''))
+        hash_em = (comments) ->
+            for comment in comments
+                comment.hash = contentKey comment
 
 * Need the current version
 
         current_version = yaml.safeLoad fs.readFileSync(file_name, 'utf8')
+        hash_em current_version?.discussion?.comments or []
 
 * Look a prior version if any
 
         prior_version = yaml.safeLoad $("cd #{path.dirname file_name}; git show HEAD~1:#{path.basename file_name}")
         if prior_version.fatal
             prior_version = {}
-
+        hash_em prior_version?.discussion?.comments or []
 
 * Whip through the workflow affecting components, who, links, comments, and
 todo state, comparing the prior and current, subtracting in either
 direction to figure what changed.
 
         diff =
-            current: current_version
+            file_name: file_name
+            mark_done: (current_version.done and not prior_version.done) or false
+            unmark_todo: (prior_version.done and not current_version.done) or false
             added_links: _.difference _.keys(current_version.links) or [],
                 _.keys(prior_version.links) or []
             removed_links: _.difference _.keys(prior_version.links) or [],
@@ -42,19 +51,15 @@ direction to figure what changed.
 to figure the changed ones. Don't worry about removed ones, there isn't
 a workflow for that case since comments are just about notification.
 
-        contentKey = (object) ->
-            md5(_.values(object).join(''))
-
-        current_comments = _.zipObject(
-            _.map((current_version?.discussion?.comments or []), contentKey),
-            (current_version?.discussion?.comments or []))
-        prior_comments = _.zipObject(
-            _.map((prior_version?.discussion?.comments or []), contentKey),
-            (prior_version?.discussion?.comments or []))
+        current_comments = _.pluck current_version?.discussion?.comments, 'hash'
+        hash_comments = {}
+        for comment in current_version?.discussion?.comments
+            hash_comments[comment.hash] = comment
+        prior_comments = _.pluck prior_version?.discussion?.comments, 'hash'
 
         diff.updated_comments = _.map(
-            _.difference(_.keys(current_comments), _.keys(prior_comments)),
-            (x) -> current_comments[x])
+            _.difference(current_comments, prior_comments),
+            (x) -> hash_comments[x])
 
 * Write out yaml that is the full current task, along with an array of changes
 
