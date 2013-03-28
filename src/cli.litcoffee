@@ -14,6 +14,7 @@ modules and the command sub modules here.
         list: require './list'
         update: require './update'
         diff: require './diff'
+        make: require './make'
 
 This is going last on purpose, hooks into global, thus looking to only interfere
 after everyone else has had a normal experience.

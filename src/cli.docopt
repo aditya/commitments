@@ -6,6 +6,7 @@ Usage:
     commitments [options] list users
     commitments [options] update task
     commitments [options] diff <taskfilename>
+    commitments [options] make <template>
     commitments --version
     commitments --help
 
@@ -15,14 +16,16 @@ Options:
     --directory=<dir>   Use this directory, default is .
 
 The available commands are:
-    init          Set up a new commitments repository system
-    add user      Create a home directory and repository for a user
-    list users    List all the users
-    update task   This is the fundamental action, add/edit a task and run
-                  and subsequent required workflow or actions. Reads stdin.
+    init            Set up a new commitments repository system
+    add user        Create a home directory and repository for a user
+    list users      List all the users
+    update task     This is the fundamental action, add/edit a task and run
+                    and subsequent required workflow or actions. Reads stdin.
+    diff            Compare a task against the prior version, generating a 
+                    logical diff usable to drive workflow.
+    make            Reading yaml from stdin, make a script/string with a 
+                    template.
 
-  make
-  diff
   emit
   commit
   route task
