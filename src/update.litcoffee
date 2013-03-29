@@ -7,21 +7,22 @@ Here is the outline of the workflow:
 
     module.exports = (options) ->
 
+        task = yaml.safeLoad(fs.readFileSync('/dev/stdin', 'utf8'))
+
 * Figure out who is the owner, which isn't exciting it is a property lookup
 
-        task = yaml.safeLoad(fs.readFileSync('/dev/stdin', 'utf8'))
+        owner_directory = path.resolve path.join(options.directory, task.who.toLowerCase())
 
 * Make sure the owner exists, self shelling
 
-        shell "commitments --directory '#{options.directory}' add user '#{task.who}'"
+        if not fs.existsSync owner_directory
+            shell "commitments --directory '#{options.directory}' add user '#{task.who}'"
 
 * Write out the task in the owner's repository
 
-        owner_directory = path.resolve path.join(options.directory, task.who.toLowerCase())
         file_name = "#{task.id}.yaml"
         full_file_name = path.resolve path.join(owner_directory, file_name)
         fs.writeFileSync full_file_name, yaml.safeDump(task)
-        console.log "#{file_name} written".info
 
 * Get the logical diff, relying on git, this will tell us data actions, and pipe
 it to generate the workflow.

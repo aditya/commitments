@@ -10,7 +10,9 @@ to then generate an actions script.
     md5 = require 'MD5'
 
     module.exports = (options) ->
-        file_name = options['<taskfilename>']
+        full_file_name = options['<taskfilename>']
+        owner_repository = path.dirname full_file_name
+        relative_task_file = path.basename full_file_name
         #handy helpers
         contentKey = (object) ->
             md5(_.values(object).join(''))
@@ -20,12 +22,13 @@ to then generate an actions script.
 
 * Need the current version
 
-        current_version = yaml.safeLoad fs.readFileSync(file_name, 'utf8')
+        current_version = yaml.safeLoad fs.readFileSync(full_file_name, 'utf8')
         hash_em current_version?.discussion?.comments or []
 
-* Look a prior version if any
+* Look for a prior committed version if any
 
-        prior_version = yaml.safeLoad $("cd #{path.dirname file_name}; git show HEAD~1:#{path.basename file_name}")
+        prior_version = yaml.safeLoad $("cd #{owner_repository}; git show HEAD:#{relative_task_file}")
+        console.error prior_version.warn
         if prior_version.fatal
             prior_version = {}
         hash_em prior_version?.discussion?.comments or []
@@ -35,7 +38,7 @@ todo state, comparing the prior and current, subtracting in either
 direction to figure what changed.
 
         diff =
-            file_name: file_name
+            file_name: full_file_name
             mark_done: (current_version.done and not prior_version.done) or false
             unmark_todo: (prior_version.done and not current_version.done) or false
             added_links: _.difference _.keys(current_version.links) or [],
@@ -63,4 +66,4 @@ a workflow for that case since comments are just about notification.
 
 * Write out yaml that is the full current task, along with an array of changes
 
-        console.log yaml.safeDump(diff)
+        process.stdout.write yaml.safeDump(diff)

@@ -13,14 +13,16 @@ in plain old bash.
         results = shelljs.exec shell_commands
         global['$?'] = results.code
         if Array.isArray results.output
-            return results.output.join ''
+            ret = results.output.join ''
         else
-            return results.output
+            ret = results.output
+        if results.code
+            console.error ret.error
+        ret
 
 And a just plain run function that pipes output, returning the exit code.
 
     global.shell = (shell_commands) ->
-        console.error shell_commands.warn
         shelljs.config.silent = false
         shelljs.exec(shell_commands).code
 

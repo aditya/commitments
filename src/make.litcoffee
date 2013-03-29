@@ -11,4 +11,4 @@ that reads data from input, and well, makes things...
         template = fs.readFileSync(
             path.join(__dirname, 'templates', "#{options['<template>']}.mustache"),
             'utf8')
-        process.stdout.write mustache.render(template, context)
+        process.stdout.write mustache.render(template, context).replace /\n+/g, "\n"

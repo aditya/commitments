@@ -1,0 +1,20 @@
+[32mInitialized empty Git repository in /Users/wballard/commitments_server/___/kwokoek@glgroup.com/.git/
+[39m
+commitments share task with 'igroff@glgroup.com'
+commitments share task with 'wballard@glgroup.com'
+commitments add tag 'Tagged'
+commitments add tag 'Important'
+commitments add tag 'ABC/123'
+commitments add tag 'ABC/Luv'
+commitments update comment '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' '50b3b28ec1adba3f50be5059071384b9'
+commitments update comment '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' '5a5a43c91784dfb21a3063a6521c92c2'
+
+[31m# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	a.yaml.actions
+nothing added to commit but untracked files present (use "git add" to track)
+[39m
+
+commitments mark task done '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml'

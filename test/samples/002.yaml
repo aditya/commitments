@@ -1,6 +1,7 @@
 #on purpose, the file name of this sample doesn't match the ID.
 id: 'a'
 what: 'I am but a simple task'
+done: true
 tags:
     Tagged: 1
     Important: 1
