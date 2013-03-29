@@ -6,6 +6,7 @@ modules and the command sub modules here.
     require('colors').setTheme
         info: 'green'
         error: 'red'
+        warn: 'yellow'
     #all our commands, there has to be a way to do this
     #without being so pedantic
     commands =
@@ -15,6 +16,7 @@ modules and the command sub modules here.
         update: require './update'
         diff: require './diff'
         make: require './make'
+        commit: require './commit'
 
 This is going last on purpose, hooks into global, thus looking to only interfere
 after everyone else has had a normal experience.

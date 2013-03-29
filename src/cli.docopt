@@ -7,6 +7,7 @@ Usage:
     commitments [options] update task
     commitments [options] diff <taskfilename>
     commitments [options] make <template>
+    commitments [options] commit <taskfilename>
     commitments --version
     commitments --help
 

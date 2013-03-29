@@ -23,17 +23,13 @@ Here is the outline of the workflow:
         fs.writeFileSync full_file_name, yaml.safeDump(task)
         console.log "#{file_name} written".info
 
-* Add in the task to git, this is our workflow tracking mechanism, but in the
-correct directory.
-
-        shell "cd '#{owner_directory}'; git add #{file_name}"
-
 * Get the logical diff, relying on git, this will tell us data actions, and pipe
 it to generate the workflow.
 
-        shell "commitments --directory '#{options.directory}' diff '#{full_file_name}' | commitments make workflow"
-
-* Execute followon actions, this is a generation step that will make a throw
-away shell script, and is the real 'hard part' where activity takes place
+        shell "commitments --directory '#{options.directory}' diff '#{full_file_name}'
+        | commitments --directory '#{options.directory}'  make workflow
+        | tee '#{full_file_name}.actions'"
 
 * Commit the task
+
+        shell "commitments --directory '#{options.directory}' commit '#{full_file_name}'"

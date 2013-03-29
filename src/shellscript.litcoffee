@@ -20,6 +20,7 @@ in plain old bash.
 And a just plain run function that pipes output, returning the exit code.
 
     global.shell = (shell_commands) ->
+        console.error shell_commands.warn
         shelljs.config.silent = false
         shelljs.exec(shell_commands).code
 
