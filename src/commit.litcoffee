@@ -16,13 +16,7 @@ correct directory.
             "add", full_file_name
         console.log "#{relative_task_file} added".info
 
-        #FUCK THIS
-        shelljs = require('shelljs')
-        ###
         $ "git", "--git-dir", "#{owner_repository}/.git",
             "--work-tree", owner_repository,
-            "commit", "--file", "#{relative_task_file}.actions"
-        ###
-        shelljs.config.silent = true
-        shelljs.exec "git --git-dir '#{owner_repository}/.git' --work-tree '#{owner_repository}' commit --allow-empty-message --message ''"
+            "commit", "--allow-empty-message", "--message", "''"
 
