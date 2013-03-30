@@ -27,9 +27,10 @@ to then generate an actions script.
 
 * Look for a prior committed version if any
 
-        prior_version = yaml.safeLoad $("cd #{owner_repository}; git show HEAD:#{relative_task_file}")
-        console.error prior_version.warn
-        if prior_version.fatal
+        prior_version = $("cd #{owner_repository}; git show HEAD:#{relative_task_file}")
+        if prior_version
+            prior_version = yaml.safeLoad prior_version
+        else
             prior_version = {}
         hash_em prior_version?.discussion?.comments or []
 

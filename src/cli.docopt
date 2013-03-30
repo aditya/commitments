@@ -26,9 +26,9 @@ The available commands are:
                     logical diff usable to drive workflow.
     make            Reading yaml from stdin, make a script/string with a 
                     template.
+    commit          Once an update is all done, commit it into the record to
+                    drive workflow on subsequent updates and diffs.
 
-  emit
-  commit
   mark task todo
   mark task done
   delete task

@@ -8,10 +8,15 @@ the user name is lower case, but otherwise is expected to be an email and won't
 get any additional escaping.
 
     user = (options) ->
-        user_directory = path.join options.directory, options['<username>'].toLowerCase()
+        username = options['<username>'].toLowerCase()
+        user_directory = path.join options.directory, username
         if not fs.existsSync user_directory
+            console.log "making #{user_directory}".info
             fs.mkdirSync user_directory
-        console.log $("git init '#{user_directory}'").info
+        #doing this without a subshell
+        $ "git", "--git-dir", "#{user_directory}/.git",
+            "--work-tree", user_directory,
+            "init", "--shared"
 
 And here is the actual add, just looking for the sub command as needed.
 

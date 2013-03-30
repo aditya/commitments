@@ -2,6 +2,7 @@ This is the command line interface main entry point, set up the required
 modules and the command sub modules here.
 
     _ = require 'underscore'
+    require('shellscript').globalize()
     path = require 'path'
     require('colors').setTheme
         info: 'green'
@@ -21,7 +22,6 @@ modules and the command sub modules here.
 This is going last on purpose, hooks into global, thus looking to only interfere
 after everyone else has had a normal experience.
 
-    require './shellscript'
 
 Update the system path to allow self shelling.
 
@@ -49,7 +49,7 @@ Full on help
 
 Defaults, docopt isn't super smart about this part
 
-    cli.options['--directory'] = cli.options['--directory'] or process.cwd
+    cli.options['--directory'] = cli.options['--directory'] or process.cwd()
     for name, value of cli.options
         if name.slice(0,2) is '--'
             cli.options[name.slice(2)] = value

@@ -3,17 +3,26 @@ Commit a task once the workflow is complete.
     path = require 'path'
 
     module.exports = (options) ->
-        full_file_name = options['<taskfilename>']
+        full_file_name = path.resolve options['<taskfilename>']
         owner_repository = path.dirname full_file_name
         relative_task_file = path.basename full_file_name
 
 * Add in the task to git, this is our workflow tracking mechanism, but in the
 correct directory.
 
-        $("cd '#{owner_repository}'; git add #{relative_task_file}")
+        #running these without a subshell
+        $ "git", "--git-dir", "#{owner_repository}/.git",
+            "--work-tree", owner_repository,
+            "add", full_file_name
+        console.log "#{relative_task_file} added".info
 
-* Commit the task to git, now we are all done
-
-        $("cd '#{owner_repository}'; git commit --file #{full_file_name}.actions")
-        $("rm '#{full_file_name}.actions'")
+        #FUCK THIS
+        shelljs = require('shelljs')
+        ###
+        $ "git", "--git-dir", "#{owner_repository}/.git",
+            "--work-tree", owner_repository,
+            "commit", "--file", "#{relative_task_file}.actions"
+        ###
+        shelljs.config.silent = true
+        shelljs.exec "git --git-dir '#{owner_repository}/.git' --work-tree '#{owner_repository}' commit --allow-empty-message --message ''"
 

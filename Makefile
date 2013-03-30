@@ -20,10 +20,11 @@ _list_user: _add_user
 	$(DIFF) /tmp/$@ test/expected/$@
 
 _task_create: _init
+	$(COMMITMENTS) add user kwokoek@glgroup.com | tee /tmp/$@
 	#initial task
-	cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
+	time cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
 	#no update
-	cat test/samples/001.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
+	time cat test/samples/001.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	#going through a simulated task workflow
-	cat test/samples/002.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
+	time cat test/samples/002.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@
