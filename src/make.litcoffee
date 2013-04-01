@@ -1,7 +1,7 @@
 Make isn't makefile, but I could not think of a better name for the script
 that reads data from input, and well, makes things...
 
-    _ = require 'underscore'
+    _ = require 'lodash'
 
     module.exports = (options) ->
 

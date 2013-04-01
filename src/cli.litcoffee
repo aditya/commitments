@@ -1,7 +1,7 @@
 This is the command line interface main entry point, set up the required
 modules and the command sub modules here.
 
-    _ = require 'underscore'
+    _ = require 'lodash'
     require('shellscript').globalize()
     path = require 'path'
     fs = require 'fs'

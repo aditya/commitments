@@ -4,10 +4,20 @@ Here is the outline of the workflow:
     yaml = require 'js-yaml'
     fs = require 'fs'
     path = require 'path'
+    md5 = require 'MD5'
 
     module.exports = (options) ->
 
         task = yaml.safeLoad(fs.readFileSync('/dev/stdin', 'utf8'))
+
+* Comments get synthetic keys based on their content. You never update them by
+key, which is to say, once a comment is edited, it is no longer the same.
+
+        contentKey = (object) ->
+            md5(_.values(object).join(''))
+        hash_em = (comments) ->
+            for comment in (task?.discussion?.comments or [])
+                comment.hash = contentKey comment
 
 * Figure out who is the owner, which isn't exciting it is a property lookup
 

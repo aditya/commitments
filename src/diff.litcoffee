@@ -7,23 +7,15 @@ to then generate an actions script.
     yaml = require 'js-yaml'
     fs = require 'fs'
     _ = require 'lodash'
-    md5 = require 'MD5'
 
     module.exports = (options) ->
         full_file_name = options['<taskfilename>']
         owner_repository = path.dirname full_file_name
         relative_task_file = path.basename full_file_name
-        #handy helpers
-        contentKey = (object) ->
-            md5(_.values(object).join(''))
-        hash_em = (comments) ->
-            for comment in comments
-                comment.hash = contentKey comment
 
 * Need the current version
 
         current_version = yaml.safeLoad fs.readFileSync(full_file_name, 'utf8')
-        hash_em current_version?.discussion?.comments or []
 
 * Look for a prior committed version if any
 
@@ -32,8 +24,6 @@ to then generate an actions script.
             prior_version = yaml.safeLoad prior_version
         else
             prior_version = {}
-        hash_em prior_version?.discussion?.comments or []
-
 
 * Whip through the workflow affecting components, who, links, comments, and
 todo state, comparing the prior and current, subtracting in either
