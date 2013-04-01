@@ -9,7 +9,7 @@ that reads data from input, and well, makes things...
         fs = require 'fs'
         path = require 'path'
         handlebars = require 'handlebars'
-        context = yaml.safeLoad fs.readFileSync('/dev/stdin', 'utf8')
+        context = yaml.safeLoad fs.readFileSync(options.context or '/dev/stdin', 'utf8')
 
 Make all the command line options visisble, let's hope they don't stomp :_
 

@@ -6,7 +6,7 @@ Usage:
     commitments [options] list users
     commitments [options] update task
     commitments [options] diff <taskfilename>
-    commitments [options] make <template>
+    commitments [options] make <template> [<context>]
     commitments [options] commit <taskfilename>
     commitments [options] share <taskfilename> with <username>
     commitments [options] unshare <taskfilename> with <username>

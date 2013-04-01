@@ -5,6 +5,9 @@ COMMITMENTS ?= ./bin/commitments --directory ./___
 
 test: _init _add_user _list_user _task_create
 
+test_pass:
+	DIFF=cp $(MAKE) test
+
 _init:
 	-rm -rf ./___
 	$(COMMITMENTS) init | tee /tmp/$@
