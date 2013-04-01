@@ -1,14 +1,15 @@
-commitments share task with 'igroff@glgroup.com'
-commitments share task with 'wballard@glgroup.com'
-commitments add tag 'Tagged'
-commitments add tag 'Important'
-commitments add tag 'ABC/123'
-commitments add tag 'ABC/Luv'
-commitments update comment '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' '50b3b28ec1adba3f50be5059071384b9'
-commitments update comment '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' '5a5a43c91784dfb21a3063a6521c92c2'
+___/kwokoek@glgroup.comcd "./___"
+commitments share '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' with 'igroff@glgroup.com'
+commitments share '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' with 'wballard@glgroup.com'
+#commitments add tag 'Tagged'
+#commitments add tag 'Important'
+#commitments add tag 'ABC/123'
+#commitments add tag 'ABC/Luv'
+#commitments update comment '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' '50b3b28ec1adba3f50be5059071384b9'
+#commitments update comment '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' '5a5a43c91784dfb21a3063a6521c92c2'
 [32ma.yaml added[39m
-
+___/kwokoek@glgroup.comcd "./___"
 [32ma.yaml added[39m
-
-commitments mark task done '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml'
+___/kwokoek@glgroup.comcd "./___"
+#commitments mark task done '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml'
 [32ma.yaml added[39m

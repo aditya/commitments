@@ -23,7 +23,7 @@ modules and the command sub modules here.
         diff: require './diff'
         make: require './make'
         commit: require './commit'
-        share: require './commit'
+        share: require './share'
 
 This is going last on purpose, hooks into global, thus looking to only interfere
 after everyone else has had a normal experience.
@@ -53,12 +53,19 @@ Full on help
     if cli.options['--help']
         console.log cli.help
 
-Defaults, docopt isn't super smart about this part
+Defaults, docopt isn't super smart about this part, so scrub some options.
 
     cli.options['--directory'] = cli.options['--directory'] or process.cwd()
     for name, value of cli.options
         if name.slice(0,2) is '--'
             cli.options[name.slice(2)] = value
+        if name.slice(0,1) is '<' and name.slice(-1) is '>'
+            cli.options[name.slice(1,-1)] = value
+
+Debugging information helps sometimes
+
+    if cli.options['--debug']
+        console.log cli.options
 
 Commands that actually do things are in other modules, and are called here
 

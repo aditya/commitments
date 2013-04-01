@@ -16,6 +16,7 @@ Options:
     --version           Print the current version
     --help              Tells us all about it
     --directory=<dir>   Use this directory, default is .
+    --debug             Print extra info to help debug
 
 The available commands are:
     init            Set up a new commitments repository system

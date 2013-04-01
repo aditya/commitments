@@ -11,12 +11,15 @@ get any additional escaping.
         username = options['<username>'].toLowerCase()
         user_directory = path.join options.directory, username
         if not fs.existsSync user_directory
-            console.log "making #{user_directory}".info
             fs.mkdirSync user_directory
-        #doing this without a subshell
+        #just to discard the output here
         $ "git", "--git-dir", "#{user_directory}/.git",
             "--work-tree", user_directory,
             "init", "--shared"
+
+Just print the created directory, this way we can use this command in scripts.
+
+        process.stdout.write "#{user_directory}"
 
 And here is the actual add, just looking for the sub command as needed.
 
