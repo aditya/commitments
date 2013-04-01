@@ -46,10 +46,6 @@ direction to figure what changed.
                 _.keys(prior_version.links) or []
             removed_links: _.difference _.keys(prior_version.links) or [],
                 _.keys(current_version.links) or []
-            added_tags: _.difference _.keys(current_version.tags) or [],
-                _.keys(prior_version.tags) or []
-            removed_tags: _.difference _.keys(prior_version.tags) or [],
-                _.keys(current_version.tags) or []
 
 * Figuring changed comments is a tad more work, make a synthetic content key
 to figure the changed ones. Don't worry about removed ones, there isn't

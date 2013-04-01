@@ -37,13 +37,8 @@ The available commands are:
   mark task todo
   mark task done
   delete task
-  share task
-  unshare task
   accept task
   reject task
   poke task
-  list tags
   list tasks
-  archive
   update comment
-  add tag
