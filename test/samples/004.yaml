@@ -1,7 +1,7 @@
-#and, now marking it undone
+#And now -- we unshare a bit
 id: 'a'
 what: 'I am but a simple task'
-done: false
+done: true
 tags:
     Tagged: 1
     Important: 1
@@ -10,7 +10,6 @@ tags:
 who: 'kwokoek@glgroup.com'
 links:
     'igroff@glgroup.com': 1
-    'wballard@glgroup.com': 1
 discussion:
     show: true
     comments:

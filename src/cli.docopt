@@ -9,6 +9,7 @@ Usage:
     commitments [options] make <template>
     commitments [options] commit <taskfilename>
     commitments [options] share <taskfilename> with <username>
+    commitments [options] unshare <taskfilename> with <username>
     commitments --version
     commitments --help
 
@@ -31,6 +32,7 @@ The available commands are:
     commit          Once an update is all done, commit it into the record to
                     drive workflow on subsequent updates and diffs.
     share with      Make a task available to another user's task list.
+    unshare with    Take a task away from another user.
 
   mark task todo
   mark task done

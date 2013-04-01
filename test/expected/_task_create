@@ -11,5 +11,10 @@ commitments share '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.
 ___/kwokoek@glgroup.comcd "./___"
 [32ma.yaml added[39m
 ___/kwokoek@glgroup.comcd "./___"
+[32ma.yaml added[39m
+___/kwokoek@glgroup.comcd "./___"
+commitments unshare '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' with 'wballard@glgroup.com'
 #commitments mark task done '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml'
+[32ma.yaml added[39m
+___/kwokoek@glgroup.comcd "./___"
 [32ma.yaml added[39m

@@ -23,8 +23,14 @@ _task_create: _init
 	$(COMMITMENTS) add user kwokoek@glgroup.com | tee /tmp/$@
 	#initial task
 	time cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
+	#shared results
+	test -e ___/wballard@glgroup.com/a.yaml
 	#no update
 	time cat test/samples/001.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	#going through a simulated task workflow
 	time cat test/samples/002.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
+	time cat test/samples/003.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
+	time cat test/samples/004.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
+	#unshared results
+	test ! -e ___/wballard@glgroup.com/a.yaml
 	$(DIFF) /tmp/$@ test/expected/$@

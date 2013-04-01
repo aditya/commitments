@@ -4,6 +4,7 @@ modules and the command sub modules here.
     _ = require 'underscore'
     require('shellscript').globalize()
     path = require 'path'
+    fs = require 'fs'
     require('colors').setTheme
         info: 'green'
         error: 'red'
@@ -13,21 +14,12 @@ modules and the command sub modules here.
     console.error = (args...)->
         colorized = _.map args, ((x) -> x.error)
         console.error_save.apply null, colorized
-    #all our commands, there has to be a way to do this
-    #without being so pedantic
-    commands =
-        init: require './init'
-        add: require './add'
-        list: require './list'
-        update: require './update'
-        diff: require './diff'
-        make: require './make'
-        commit: require './commit'
-        share: require './share'
 
-This is going last on purpose, hooks into global, thus looking to only interfere
-after everyone else has had a normal experience.
-
+    #all of our commands, like we did back in CME
+    commands = {}
+    for file in fs.readdirSync __dirname
+        if path.extname(file) is '.litcoffee'
+            commands[path.basename file, '.litcoffee'] = require("./#{file}")
 
 Update the system path to allow self shelling.
 
