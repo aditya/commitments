@@ -17,5 +17,7 @@ commitments task undone "$FILE_NAME"
 {{/task_undone}}
 
 {{#updated_comments}}
-#commitments update comment "$FILE_NAME" '{{{hash}}}'
+{{#eachProperty ../current_version.links}}
+notify send --to '{{{key}}}' --tags "comment" --link"{{{../../current_version.id}}}/{{{../hash}}}"
+{{/eachProperty}}
 {{/updated_comments}}

@@ -5,8 +5,12 @@ Here is the outline of the workflow:
     fs = require 'fs'
     path = require 'path'
     md5 = require 'MD5'
+    _ = require 'lodash'
 
-    module.exports = (options) ->
+
+All about updating tasks
+
+    task = (options) ->
 
         task = yaml.safeLoad(fs.readFileSync('/dev/stdin', 'utf8'))
 
@@ -15,9 +19,8 @@ key, which is to say, once a comment is edited, it is no longer the same.
 
         contentKey = (object) ->
             md5(_.values(object).join(''))
-        hash_em = (comments) ->
-            for comment in (task?.discussion?.comments or [])
-                comment.hash = contentKey comment
+        for comment in (task?.discussion?.comments or [])
+            comment.hash = contentKey comment
 
 * Figure out who is the owner, which isn't exciting it is a property lookup
 
@@ -43,3 +46,9 @@ it to generate the workflow.
 * Commit the task
 
         shell "commitments --directory '#{options.directory}' commit '#{full_file_name}'"
+
+
+Call through to the sub commands with a short circuit
+
+    module.exports = (options) ->
+        options.task and task(options)

@@ -5,7 +5,6 @@ Usage:
     commitments [options] add user <username>
     commitments [options] list users
     commitments [options] update task
-    commitments [options] update comment <taskfilename> <commenthash>
     commitments [options] diff <taskfilename>
     commitments [options] make <template>
     commitments [options] commit <taskfilename>
