@@ -38,11 +38,8 @@ The available commands are:
     task done       When a task is all done.
     task undone     When a task goes from done back again.
 
-  mark task todo
-  mark task done
   delete task
   accept <taskfile> by <username>
   reject <taskfile> by <username>
   poke <username> about <taskfile>
   list tasks
-  update comment

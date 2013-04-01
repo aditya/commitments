@@ -1,4 +1,8 @@
 ___/kwokoek@glgroup.comThis is a very fake do nothing test notify
+--to igroff@glgroup.com --tags share --link a --context /Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml
+This is a very fake do nothing test notify
+--to wballard@glgroup.com --tags share --link a --context /Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml
+This is a very fake do nothing test notify
 send --to igroff@glgroup.com --tags comment --link a/50b3b28ec1adba3f50be5059071384b9 --context /Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml
 This is a very fake do nothing test notify
 send --to wballard@glgroup.com --tags comment --link a/50b3b28ec1adba3f50be5059071384b9 --context /Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml
