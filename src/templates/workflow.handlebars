@@ -1,0 +1,21 @@
+
+cd "{{{directory}}}"
+FILE_NAME='{{{file_name}}}'
+
+{{#each added_links}}
+commitments share "$FILE_NAME" with '{{{this}}}'
+{{/each}}
+{{#each removed_links}}
+commitments unshare "$FILE_NAME" with '{{{this}}}'
+{{/each}}
+
+{{#task_done}}
+commitments task done "$FILE_NAME"
+{{/task_done}}
+{{#task_undone}}
+commitments task undone "$FILE_NAME"
+{{/task_undone}}
+
+{{#updated_comments}}
+#commitments update comment "$FILE_NAME" '{{{hash}}}'
+{{/updated_comments}}

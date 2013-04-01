@@ -9,6 +9,7 @@ modules and the command sub modules here.
         info: 'green'
         error: 'red'
         warn: 'yellow'
+        debug: 'blue'
     #color!
     console.error_save = console.error
     console.error = (args...)->

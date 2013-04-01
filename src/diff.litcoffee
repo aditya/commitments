@@ -34,18 +34,21 @@ to then generate an actions script.
             prior_version = {}
         hash_em prior_version?.discussion?.comments or []
 
+
 * Whip through the workflow affecting components, who, links, comments, and
 todo state, comparing the prior and current, subtracting in either
 direction to figure what changed.
 
         diff =
             file_name: full_file_name
-            mark_done: (current_version.done and not prior_version.done) or false
-            unmark_todo: (prior_version.done and not current_version.done) or false
+            task_done: (current_version.done and (not prior_version.done)) or false
+            task_undone: (prior_version.done and (not current_version.done)) or false
             added_links: _.difference _.keys(current_version.links) or [],
                 _.keys(prior_version.links) or []
             removed_links: _.difference _.keys(prior_version.links) or [],
                 _.keys(current_version.links) or []
+            current_version: current_version
+            prior_version: prior_version
 
 * Figuring changed comments is a tad more work, make a synthetic content key
 to figure the changed ones. Don't worry about removed ones, there isn't

@@ -1,0 +1,6 @@
+
+MESSAGE='{{{what}}}'
+LINK='{{{id}}}'
+{{#eachProperty links}}
+notify send --to '{{{key}}}' --message "$LINK" --tags "undone" --link "$ID"
+{{/eachProperty}}

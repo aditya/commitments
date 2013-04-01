@@ -28,8 +28,7 @@ it to generate the workflow.
 
         shell "commitments --directory '#{options.directory}' diff '#{full_file_name}'
         | commitments --directory '#{options.directory}' make workflow
-        | tee '#{full_file_name}.actions'", true
-        shell "cat '#{full_file_name}.actions' | $SHELL", true
+        | $SHELL", true
 
 * Commit the task
 

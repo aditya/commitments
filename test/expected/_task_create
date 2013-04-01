@@ -1,16 +1,11 @@
-___/kwokoek@glgroup.comcd "./___"
-commitments share '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' with 'igroff@glgroup.com'
-commitments share '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' with 'wballard@glgroup.com'
-#commitments update comment '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' '50b3b28ec1adba3f50be5059071384b9'
-#commitments update comment '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' '5a5a43c91784dfb21a3063a6521c92c2'
+___/kwokoek@glgroup.com[32ma.yaml added[39m
+___/kwokoek@glgroup.com[32ma.yaml added[39m
+___/kwokoek@glgroup.comThis is a very fake do nothing test notify
+send --to igroff@glgroup.com --message a --tags done --link
+This is a very fake do nothing test notify
+send --to wballard@glgroup.com --message a --tags done --link
 [32ma.yaml added[39m
-___/kwokoek@glgroup.comcd "./___"
-[32ma.yaml added[39m
-___/kwokoek@glgroup.comcd "./___"
-[32ma.yaml added[39m
-___/kwokoek@glgroup.comcd "./___"
-commitments unshare '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml' with 'wballard@glgroup.com'
-#commitments mark task done '/Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml'
-[32ma.yaml added[39m
-___/kwokoek@glgroup.comcd "./___"
+___/kwokoek@glgroup.com[32ma.yaml added[39m
+___/kwokoek@glgroup.comThis is a very fake do nothing test notify
+send --to igroff@glgroup.com --message a --tags undone --link
 [32ma.yaml added[39m

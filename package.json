@@ -10,7 +10,7 @@
     "colors": "",
     "lodash": "",
     "MD5": "",
-    "mustache": "",
+    "handlebars": "",
     "shellscript": "git://github.com/wballard/shellscript.git"
   },
   "engine": {

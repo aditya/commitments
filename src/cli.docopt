@@ -10,6 +10,8 @@ Usage:
     commitments [options] commit <taskfilename>
     commitments [options] share <taskfilename> with <username>
     commitments [options] unshare <taskfilename> with <username>
+    commitments [options] task done <taskfilename>
+    commitments [options] task undone <taskfilename>
     commitments --version
     commitments --help
 
@@ -33,12 +35,14 @@ The available commands are:
                     drive workflow on subsequent updates and diffs.
     share with      Make a task available to another user's task list.
     unshare with    Take a task away from another user.
+    task done       When a task is all done.
+    task undone     When a task goes from done back again.
 
   mark task todo
   mark task done
   delete task
-  accept task
-  reject task
-  poke task
+  accept <taskfile> by <username>
+  reject <taskfile> by <username>
+  poke <username> about <taskfile>
   list tasks
   update comment

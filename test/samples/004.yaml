@@ -1,7 +1,7 @@
-#And now -- we unshare a bit
+#And now -- make undone
 id: 'a'
 what: 'I am but a simple task'
-done: true
+done: false
 tags:
     Tagged: 1
     Important: 1

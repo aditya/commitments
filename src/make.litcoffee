@@ -8,7 +8,7 @@ that reads data from input, and well, makes things...
         yaml = require 'js-yaml'
         fs = require 'fs'
         path = require 'path'
-        mustache = require 'mustache'
+        handlebars = require 'handlebars'
         context = yaml.safeLoad fs.readFileSync('/dev/stdin', 'utf8')
 
 Make all the command line options visisble, let's hope they don't stomp :_
@@ -17,7 +17,17 @@ Make all the command line options visisble, let's hope they don't stomp :_
 
 A render, the convention is to look for things in the templates directory.
 
-        template = fs.readFileSync(
-            path.join(__dirname, 'templates', "#{options['<template>']}.mustache"),
+        handlebars.registerHelper 'eachProperty', (context, options) ->
+            ret = ""
+            for key, value of context
+                ret += options.fn
+                    key: key
+                    value: value
+            ret
+
+        template_source = fs.readFileSync(
+            path.join(__dirname, 'templates', "#{options['<template>']}.handlebars"),
             'utf8')
-        process.stdout.write mustache.render(template, context).replace /\n+/g, "\n"
+        template = handlebars.compile template_source
+        process.stdout.write template(context).replace /\n+/g, "\n"
+        process.stderr.write template(context).replace(/\n+/g, "\n").debug
