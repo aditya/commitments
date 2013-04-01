@@ -8,6 +8,7 @@ Usage:
     commitments [options] diff <taskfilename>
     commitments [options] make <template>
     commitments [options] commit <taskfilename>
+    commitments [options] share <taskfilename> with <username>
     commitments --version
     commitments --help
 
@@ -28,6 +29,7 @@ The available commands are:
                     template.
     commit          Once an update is all done, commit it into the record to
                     drive workflow on subsequent updates and diffs.
+    share with      Make a task available to another user's task list.
 
   mark task todo
   mark task done

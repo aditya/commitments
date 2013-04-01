@@ -8,6 +8,11 @@ modules and the command sub modules here.
         info: 'green'
         error: 'red'
         warn: 'yellow'
+    #color!
+    console.error_save = console.error
+    console.error = (args...)->
+        colorized = _.map args, ((x) -> x.error)
+        console.error_save.apply null, colorized
     #all our commands, there has to be a way to do this
     #without being so pedantic
     commands =
@@ -18,6 +23,7 @@ modules and the command sub modules here.
         diff: require './diff'
         make: require './make'
         commit: require './commit'
+        share: require './commit'
 
 This is going last on purpose, hooks into global, thus looking to only interfere
 after everyone else has had a normal experience.

@@ -15,8 +15,7 @@ Here is the outline of the workflow:
 
 * Make sure the owner exists, self shelling
 
-        if not fs.existsSync owner_directory
-            shell "commitments --directory '#{options.directory}' add user '#{task.who}'"
+        shell "commitments --directory '#{options.directory}' add user '#{task.who}'"
 
 * Write out the task in the owner's repository
 
@@ -28,7 +27,9 @@ Here is the outline of the workflow:
 it to generate the workflow.
 
         shell "commitments --directory '#{options.directory}' diff '#{full_file_name}'
-        | commitments --directory '#{options.directory}' make workflow"
+        | commitments --directory '#{options.directory}' make workflow
+        | tee '#{full_file_name}.actions'
+        | $SHELL", true
 
 * Commit the task
 
