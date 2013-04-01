@@ -17,7 +17,9 @@ send --to igroff@glgroup.com --message I am but a simple task --tags done --link
 This is a very fake do nothing test notify
 send --to wballard@glgroup.com --message I am but a simple task --tags done --link a --context /Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml
 [32ma.yaml added[39m
-___/kwokoek@glgroup.com[32ma.yaml added[39m
+___/kwokoek@glgroup.comThis is a very fake do nothing test notify
+--to wballard@glgroup.com --tags unshare --link a --context /Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml
+[32ma.yaml added[39m
 ___/kwokoek@glgroup.comThis is a very fake do nothing test notify
 send --to igroff@glgroup.com --message I am but a simple task --tags undone --link a --context /Users/wballard/commitments_server/___/kwokoek@glgroup.com/a.yaml
 [32ma.yaml added[39m
