@@ -25,7 +25,8 @@ key, which is to say, once a comment is edited, it is no longer the same.
 
 * Make sure the owner exists, self shelling to get the user directory
 
-        owner_directory = $ "commitments add user '#{task.who}'"
+        owner_directory = path.join process.env['COMMITMENTS_ROOT'],
+            $("commitments add user '#{task.who}'")
 
 * Write out the task in the owner's repository
 

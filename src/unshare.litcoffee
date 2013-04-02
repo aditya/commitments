@@ -11,7 +11,8 @@ silly to make sure the user exists, but it is a nice way to get the user
 directory
 
         task = yaml.safeLoad(fs.readFileSync(options.taskfilename, 'utf8'))
-        share_to = $ "commitments add user '#{options.username}'"
+        share_to = path.join process.env['COMMITMENTS_ROOT'],
+            $("commitments add user '#{options.username}'")
         share_task_file = path.join(share_to, path.basename options.taskfilename)
         shell "rm '#{share_task_file}'"
         shell "notify --to '#{options.username}' --tags 'unshare' --link '#{task.id}' --context '#{options.taskfilename}'"

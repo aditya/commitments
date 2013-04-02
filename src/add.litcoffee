@@ -19,5 +19,5 @@ get any additional escaping.
 
 Just print the created directory, this way we can use this command in scripts.
 
-        process.stdout.write "#{user_directory}"
+        process.stdout.write path.relative process.env['COMMITMENTS_ROOT'], "#{user_directory}"
 
