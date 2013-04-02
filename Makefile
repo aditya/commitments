@@ -3,7 +3,7 @@ COMMITMENTS ?= ./bin/commitments --directory ./___
 
 .PHONY: test
 
-test: _init _add_user _list_user _task_create
+test: _init _add_user _list_user _task_create _task_id_default
 
 test_pass:
 	DIFF=cp $(MAKE) test
@@ -36,4 +36,8 @@ _task_create: _init
 	time cat test/samples/004.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	#unshared results, no more tasks
 	time cat test/samples/001.yaml | $(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
+	$(DIFF) /tmp/$@ test/expected/$@
+
+_task_id_default: _init
+	time cat test/samples/no_id.yaml | $(COMMITMENTS) update task | tee /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@

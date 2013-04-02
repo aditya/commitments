@@ -13,7 +13,9 @@ All about updating tasks.
 
 * Not very exciting, but get the task from stdin.
 
-        task = yaml.safeLoad(fs.readFileSync('/dev/stdin', 'utf8'))
+        task_content = fs.readFileSync('/dev/stdin', 'utf8')
+        task = yaml.safeLoad(task_content)
+        task.id = task.id or md5(task_content)
 
 * Comments get synthetic keys based on their content. You never update them by
 key, which is to say, once a comment is edited, it is no longer the same.
@@ -51,7 +53,7 @@ it to generate the workflow.
             prior_version: prior_version
         current_comments = _.pluck current_version?.discussion?.comments, 'hash'
         hash_comments = {}
-        for comment in current_version?.discussion?.comments
+        for comment in (current_version?.discussion?.comments or [])
             hash_comments[comment.hash] = comment
         prior_comments = _.pluck prior_version?.discussion?.comments, 'hash'
         diff.updated_comments = _.map(
@@ -80,3 +82,7 @@ here if there were no errors causing an abort above
             "--work-tree", owner_directory,
             "commit", "--allow-empty-message", "--message", "''"
 
+* Write back the fully updated task, as it may have an .id defaulted as well
+as comment hashes
+
+        console.log yaml.safeDump task

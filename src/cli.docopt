@@ -6,6 +6,7 @@ Usage:
     commitments [options] list users
     commitments [options] list tasks <username>
     commitments [options] update task
+    commitments [options] poke <username> about <taskid>
     commitments --version
     commitments --help
 
