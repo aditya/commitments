@@ -1,8 +1,16 @@
 This is the command line interface main entry point, set up the required
 modules and the command sub modules here.
 
+    commands =
+        add: require './add'
+        list: require './list'
+        update: require './update'
+        init: require './init'
+        share: require './share'
+        unshare: require './unshare'
     _ = require 'lodash'
-    require('shellscript').globalize()
+    docopt = require 'docopt'
+    handlebars = require 'handlebars'
     path = require 'path'
     fs = require 'fs'
     require('colors').setTheme
@@ -10,17 +18,14 @@ modules and the command sub modules here.
         error: 'red'
         warn: 'yellow'
         debug: 'blue'
-    #color!
+    require('shellscript').globalize()
+
+Color!
+
     console.error_save = console.error
     console.error = (args...)->
         colorized = _.map args, ((x) -> x.error)
         console.error_save.apply null, colorized
-
-    #all of our commands, like we did back in CME
-    commands = {}
-    for file in fs.readdirSync __dirname
-        if path.extname(file) is '.litcoffee'
-            commands[path.basename file, '.litcoffee'] = require("./#{file}")
 
 Update the system path to allow self shelling.
 
@@ -29,8 +34,6 @@ Update the system path to allow self shelling.
 Making a little patch to require in order to get options, probably should
 fork docopt and add this feature.
 
-    docopt = require 'docopt'
-    fs = require 'fs'
     require.extensions['.docopt'] = (module, filename) ->
         doc = fs.readFileSync filename, 'utf8'
         module.exports =
@@ -41,14 +44,38 @@ The actual command line processing.
 
     cli = require './cli.docopt'
 
+Code generation support.
+
+    handlebars.registerHelper 'eachProperty', (context, options) ->
+        ret = ""
+        for key, value of context
+            ret += options.fn
+                key: key
+                value: value
+        ret
+    global.render = (template, context) ->
+        context = _.extend {}, cli.options, context
+        template_source = fs.readFileSync(
+            path.join(__dirname, 'templates', "#{template}.handlebars"),
+            'utf8')
+        template = handlebars.compile template_source
+        ret = template(context).replace /\n+/g, "\n"
+        process.stderr.write ret.debug
+        ret
+
 Full on help
 
     if cli.options['--help']
         console.log cli.help
 
+Commitements root directory needs to be in the environment
+
+    if not process.env['COMMITMENTS_ROOT']
+        process.env['COMMITMENTS_ROOT'] =
+            path.resolve cli.options['--directory'] or process.env['COMMITMENTS_ROOT'] or process.cwd()
+
 Defaults, docopt isn't super smart about this part, so scrub some options.
 
-    cli.options['--directory'] = cli.options['--directory'] or process.cwd()
     for name, value of cli.options
         if name.slice(0,2) is '--'
             cli.options[name.slice(2)] = value

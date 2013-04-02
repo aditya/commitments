@@ -5,9 +5,6 @@ Usage:
     commitments [options] add user <username>
     commitments [options] list users
     commitments [options] update task
-    commitments [options] diff <taskfilename>
-    commitments [options] make <template> [<context>]
-    commitments [options] commit <taskfilename>
     commitments [options] share <taskfilename> with <username>
     commitments [options] unshare <taskfilename> with <username>
     commitments [options] task done <taskfilename>
@@ -27,14 +24,8 @@ The available commands are:
     *list users      List all the users
     *update task     This is the fundamental action, add/edit a task and run
                     and subsequent required workflow or actions. Reads stdin.
-    *diff            Compare a task against the prior version, generating a 
-                    logical diff usable to drive workflow.
-    *make            Reading yaml from stdin, make a script/string with a 
-                    template.
     *edit            Launches you $EDITOR, then updates when you quit, much like
                     editing a git commit message.
-    commit          Once an update is all done, commit it into the record to
-                    drive workflow on subsequent updates and diffs.
     share with      Make a task available to another user's task list.
     unshare with    Take a task away from another user.
     task done       When a task is all done.

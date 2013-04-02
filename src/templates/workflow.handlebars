@@ -1,22 +1,24 @@
 
-cd "{{{directory}}}"
-
 {{#each added_links}}
-commitments share '{{{../file_name}}}' with '{{{this}}}'
+commitments share "$COMMITMENTS_ROOT/{{{../file_name}}}" with '{{{this}}}'
 {{/each}}
 {{#each removed_links}}
-commitments unshare '{{{../file_name}}}' with '{{{this}}}'
+commitments unshare "$COMMITMENTS_ROOT/{{{../file_name}}}" with '{{{this}}}'
 {{/each}}
 
 {{#task_done}}
-commitments task done '{{{../file_name}}}'
+{{#eachProperty ../current_version.links}}
+notify send --to '{{{key}}}' --message "{{{../current_version.what}}}" --tags "done" --link "{{{../current_version.id}}}" --context "$COMMITMENTS_ROOT/{{{../../file_name}}}"
+{{/eachProperty}}
 {{/task_done}}
 {{#task_undone}}
-commitments task undone '{{{../file_name}}}'
+{{#eachProperty ../current_version.links}}
+notify send --to '{{{key}}}' --message "{{{../current_version.what}}}" --tags "undone" --link "{{{../current_version.id}}}" --context "$COMMITMENTS_ROOT/{{{../../file_name}}}"
+{{/eachProperty}}
 {{/task_undone}}
 
 {{#updated_comments}}
 {{#eachProperty ../current_version.links}}
-notify send --to '{{{key}}}' --tags "comment" --link "{{{../../current_version.id}}}/{{{../hash}}}" --context '{{{../../file_name}}}'
+notify send --to '{{{key}}}' --tags "comment" --link "{{{../../current_version.id}}}/{{{../hash}}}" --context "$COMMITMENTS_ROOT/{{{../../file_name}}}"
 {{/eachProperty}}
 {{/updated_comments}}
