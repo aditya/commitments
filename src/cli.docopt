@@ -4,6 +4,7 @@ Usage:
     commitments [options] init
     commitments [options] add user <username>
     commitments [options] list users
+    commitments [options] list tasks <username>
     commitments [options] update task
     commitments --version
     commitments --help
@@ -17,7 +18,8 @@ Options:
 The available commands are:
     init            Set up a new commitments repository system
     add user        Create a home directory and repository for a user
-    list users      List all the users
+    list users      List all the users in a nice JSON array
+    list tasks      List all the tasks for a user in a nice JSON array
     update task     This is the fundamental action, add/edit a task and run
                     and subsequent required workflow or actions. Reads stdin.
     *edit            Launches you $EDITOR, then updates when you quit, much like
@@ -27,9 +29,7 @@ The available commands are:
   accept <taskfile> by <username>
   reject <taskfile> by <username>
   *poke <username> about <taskfile>
-  *list tasks
 
   TODO: inline without the *
     finish the *
     make notify
-    list commands need to come back with JSON arrays

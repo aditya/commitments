@@ -18,6 +18,7 @@ This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 [32ma.yaml added[39m
+[{"id":"a","what":"I am but a simple task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1},"discussion":{"show":true,"comments":[{"who":"wballard@glgroup.com","when":"02/21/2013","what":"Yeah! Comments!","hash":"50b3b28ec1adba3f50be5059071384b9"},{"who":"igroff@glgroup.com","when":"02/24/2013","what":"Told\\n\\nYou\\n\\nSo.","hash":"5a5a43c91784dfb21a3063a6521c92c2"}]}}]
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 [39m
@@ -44,3 +45,4 @@ notify send --to 'igroff@glgroup.com' --message "I am but a simple task" --tags 
 [39m
 This is a very fake do nothing test notify
 [32ma.yaml added[39m
+[]
