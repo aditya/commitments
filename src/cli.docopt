@@ -22,15 +22,17 @@ Options:
     --debug             Print extra info to help debug
 
 The available commands are:
-    init            Set up a new commitments repository system
-    add user        Create a home directory and repository for a user
-    list users      List all the users
-    update task     This is the fundamental action, add/edit a task and run
+    *init            Set up a new commitments repository system
+    *add user        Create a home directory and repository for a user
+    *list users      List all the users
+    *update task     This is the fundamental action, add/edit a task and run
                     and subsequent required workflow or actions. Reads stdin.
-    diff            Compare a task against the prior version, generating a 
+    *diff            Compare a task against the prior version, generating a 
                     logical diff usable to drive workflow.
-    make            Reading yaml from stdin, make a script/string with a 
+    *make            Reading yaml from stdin, make a script/string with a 
                     template.
+    *edit            Launches you $EDITOR, then updates when you quit, much like
+                    editing a git commit message.
     commit          Once an update is all done, commit it into the record to
                     drive workflow on subsequent updates and diffs.
     share with      Make a task available to another user's task list.
@@ -38,8 +40,13 @@ The available commands are:
     task done       When a task is all done.
     task undone     When a task goes from done back again.
 
-  delete task
+  *delete task
   accept <taskfile> by <username>
   reject <taskfile> by <username>
-  poke <username> about <taskfile>
-  list tasks
+  *poke <username> about <taskfile>
+  *list tasks
+
+  TODO: inline without the *
+    finish the *
+    make notify
+    list commands need to come back with JSON arrays
