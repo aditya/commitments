@@ -5,9 +5,11 @@ the moment I just me a regex.
     fs = require 'fs'
 
     users = (options) ->
+        ret = []
         for name in fs.readdirSync options.directory
             if name.slice(0,1) isnt '.'
-                console.log name
+                ret.push name
+        console.log JSON.stringify ret
 
     module.exports = (options) ->
         options.users and users options
