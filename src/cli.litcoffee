@@ -6,8 +6,6 @@ modules and the command sub modules here.
         list: require './list'
         update: require './update'
         init: require './init'
-        share: require './share'
-        unshare: require './unshare'
     _ = require 'lodash'
     docopt = require 'docopt'
     handlebars = require 'handlebars'

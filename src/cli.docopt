@@ -5,10 +5,6 @@ Usage:
     commitments [options] add user <username>
     commitments [options] list users
     commitments [options] update task
-    commitments [options] share <taskfilename> with <username>
-    commitments [options] unshare <taskfilename> with <username>
-    commitments [options] task done <taskfilename>
-    commitments [options] task undone <taskfilename>
     commitments --version
     commitments --help
 
@@ -19,17 +15,13 @@ Options:
     --debug             Print extra info to help debug
 
 The available commands are:
-    *init            Set up a new commitments repository system
-    *add user        Create a home directory and repository for a user
-    *list users      List all the users
-    *update task     This is the fundamental action, add/edit a task and run
+    init            Set up a new commitments repository system
+    add user        Create a home directory and repository for a user
+    list users      List all the users
+    update task     This is the fundamental action, add/edit a task and run
                     and subsequent required workflow or actions. Reads stdin.
     *edit            Launches you $EDITOR, then updates when you quit, much like
                     editing a git commit message.
-    share with      Make a task available to another user's task list.
-    unshare with    Take a task away from another user.
-    task done       When a task is all done.
-    task undone     When a task goes from done back again.
 
   *delete task
   accept <taskfile> by <username>
