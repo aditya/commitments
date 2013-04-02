@@ -6,6 +6,7 @@ modules and the command sub modules here.
         list: require './list'
         update: require './update'
         init: require './init'
+        poke: require './poke'
     _ = require 'lodash'
     docopt = require 'docopt'
     handlebars = require 'handlebars'

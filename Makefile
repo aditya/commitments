@@ -28,6 +28,8 @@ _task_create: _init
 	time cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
 	#shared results, there are tasks
 	time cat test/samples/001.yaml | $(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
+	$(COMMITMENTS) poke wballard@glgroup.com about a | tee -a /tmp/$@
+	$(COMMITMENTS) poke igroff@glgroup.com about a | tee -a /tmp/$@
 	#no update
 	time cat test/samples/001.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	#going through a simulated task workflow
@@ -36,6 +38,8 @@ _task_create: _init
 	time cat test/samples/004.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	#unshared results, no more tasks
 	time cat test/samples/001.yaml | $(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
+	#and a blank poke
+	$(COMMITMENTS) poke wballard@glgroup.com about a | tee -a /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@
 
 _task_id_default: _init

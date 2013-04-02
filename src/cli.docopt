@@ -22,7 +22,9 @@ The available commands are:
     list users      List all the users in a nice JSON array
     list tasks      List all the tasks for a user in a nice JSON array
     update task     This is the fundamental action, add/edit a task and run
-                    and subsequent required workflow or actions. Reads stdin.
+                    and subsequent required workflow or actions. Reads stdin
+    poke            Sends a notification to a user to ask them for a status
+                    report about a specific task.
     *edit            Launches you $EDITOR, then updates when you quit, much like
                     editing a git commit message.
 
