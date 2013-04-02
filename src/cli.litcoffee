@@ -59,9 +59,7 @@ Code generation support.
             path.join(__dirname, 'templates', "#{template}.handlebars"),
             'utf8')
         template = handlebars.compile template_source
-        ret = template(context).replace /\n+/g, "\n"
-        process.stderr.write ret.debug
-        ret
+        template(context).replace /\n+/g, "\n"
 
 Full on help
 

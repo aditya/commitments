@@ -61,6 +61,7 @@ it to generate the workflow.
 * Write out the diff generated script, and then shell it
 
         todo = render 'workflow', diff
+        console.log todo.info
         todo_file = "/tmp/#{md5(todo)}"
         fs.writeFileSync todo_file, todo
         shell "cat '#{todo_file}'
