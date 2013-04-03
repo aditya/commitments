@@ -30,9 +30,6 @@ The available commands are:
     *edit            Launches you $EDITOR, then updates when you quit, much like
                     editing a git commit message.
 
-  accept <taskfile> by <username>
-  reject <taskfile> by <username>
-  *poke <username> about <taskfile>
 
   TODO: inline without the *
     finish the *

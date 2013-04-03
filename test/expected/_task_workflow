@@ -1,5 +1,6 @@
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
+ID="a"
 [39m
 [32ma.yaml added[39m
 id: a
@@ -32,8 +33,9 @@ This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
-notify send --to 'igroff@glgroup.com' --message "I am but a simple task" --tags "done" --link "a" --context "$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
-notify send --to 'wballard@glgroup.com' --message "I am but a simple task" --tags "done" --link "a" --context "$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
+ID="a"
+notify send --to 'igroff@glgroup.com' --message "I am but a simple task" --tags "done" --link "$ID" --context "$FULL_TASK_FILE"
+notify send --to 'wballard@glgroup.com' --message "I am but a simple task" --tags "done" --link "$ID" --context "$FULL_TASK_FILE"
 [39m
 This is a very fake do nothing test notify
 This is a very fake do nothing test notify
@@ -64,10 +66,14 @@ discussion:
 
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
+ID="a"
 USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
 rm "$COMMITMENTS_ROOT/$USER_DIRECTORY/$TASK_FILE"
-notify send --to 'wballard@glgroup.com' --tags "unshare" --link "a" --context "$FULL_TASK_FILE"
+notify send --to 'wballard@glgroup.com' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE"
+WHO="wballard@glgroup.com"
+notify send --to 'igroff@glgroup.com' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE"
 [39m
+This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 [32ma.yaml added[39m
 id: a
@@ -79,6 +85,8 @@ tags:
   ABC/123: 1
   ABC/Luv: 1
 who: "kwokoek@glgroup.com"
+reject: 
+  "wballard@glgroup.com": 1
 links: 
   "igroff@glgroup.com": 1
 discussion: 
@@ -95,8 +103,12 @@ discussion:
 
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
-notify send --to 'igroff@glgroup.com' --message "I am but a simple task" --tags "undone" --link "a" --context "$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
+ID="a"
+WHO="igroff@glgroup.com"
+notify send --to 'igroff@glgroup.com' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE"
+notify send --to 'igroff@glgroup.com' --message "I am but a simple task" --tags "undone" --link "$ID" --context "$FULL_TASK_FILE"
 [39m
+This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 [32ma.yaml added[39m
 id: a
@@ -108,6 +120,8 @@ tags:
   ABC/123: 1
   ABC/Luv: 1
 who: "kwokoek@glgroup.com"
+accept: 
+  "igroff@glgroup.com": 1
 links: 
   "igroff@glgroup.com": 1
 discussion: 
@@ -126,9 +140,10 @@ discussion:
 [31mPoking wballard@glgroup.com about a is hard since they don't have the task[39m
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
+ID="a"
 USER_DIRECTORY=$(commitments add user 'igroff@glgroup.com')
 rm "$COMMITMENTS_ROOT/$USER_DIRECTORY/$TASK_FILE"
-notify send --to 'igroff@glgroup.com' --tags "unshare" --link "a" --context "$FULL_TASK_FILE"
+notify send --to 'igroff@glgroup.com' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE"
 [39m
 This is a very fake do nothing test notify
 [32ma.yaml added[39m

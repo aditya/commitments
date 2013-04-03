@@ -8,6 +8,8 @@ tags:
     'ABC/123': 1
     'ABC/Luv': 1
 who: 'kwokoek@glgroup.com'
+accept:
+    'igroff@glgroup.com': 1
 links:
     'igroff@glgroup.com': 1
 discussion:

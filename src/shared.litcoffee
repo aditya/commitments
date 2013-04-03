@@ -29,6 +29,10 @@ it to generate the workflow.
                 _.keys(prior_version.links) or []
             removed_links: _.difference _.keys(prior_version.links) or [],
                 _.keys(current_version.links) or []
+            new_accept: _.difference _.keys(current_version.accept) or [],
+                _.keys(prior_version.accept) or []
+            new_reject: _.difference _.keys(current_version.reject) or [],
+                _.keys(prior_version.reject) or []
             current_version: current_version
             prior_version: prior_version
 
