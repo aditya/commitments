@@ -1,10 +1,10 @@
 DIFF?=git --no-pager diff --ignore-all-space --color-words --no-index
-COMMITMENTS ?= ./bin/commitments --directory ./___
+COMMITMENTS?=./bin/commitments --directory ./___
 
 .PHONY: test
 
 test: 
-	PATH=./test/bin:$$PATH; $(MAKE) _init _add_user _list_user _task_create _task_id_default
+	PATH=./test/bin:$$PATH; $(MAKE) _init _add_user _list_user _task_create _task_id_default _task_workflow
 
 test_pass:
 	DIFF=cp $(MAKE) test
@@ -24,15 +24,16 @@ _list_user: _add_user
 	$(DIFF) /tmp/$@ test/expected/$@
 
 _task_create: _init
-	$(COMMITMENTS) add user kwokoek@glgroup.com | tee /tmp/$@
 	#initial task
 	time cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
+	$(DIFF) /tmp/$@ test/expected/$@
+
+_task_workflow: _init
 	#shared results, there are tasks
-	time cat test/samples/001.yaml | $(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
+	time cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
+	$(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
 	$(COMMITMENTS) poke wballard@glgroup.com about a | tee -a /tmp/$@
 	$(COMMITMENTS) poke igroff@glgroup.com about a | tee -a /tmp/$@
-	#no update
-	time cat test/samples/001.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	#going through a simulated task workflow
 	time cat test/samples/002.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	time cat test/samples/003.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
@@ -41,6 +42,8 @@ _task_create: _init
 	time cat test/samples/001.yaml | $(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
 	#and a blank poke
 	$(COMMITMENTS) poke wballard@glgroup.com about a | tee -a /tmp/$@
+	#and a delete
+	$(COMMITMENTS) delete a by kwokoek@glgroup.com | tee -a /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@
 
 _task_id_default: _init

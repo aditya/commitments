@@ -6,6 +6,7 @@ Usage:
     commitments [options] list users
     commitments [options] list tasks <username>
     commitments [options] update task
+    commitments [options] delete <taskid> by <username>
     commitments [options] poke <username> about <taskid>
     commitments --version
     commitments --help
@@ -25,10 +26,10 @@ The available commands are:
                     and subsequent required workflow or actions. Reads stdin
     poke            Sends a notification to a user to ask them for a status
                     report about a specific task.
+    delete          Empty out a task, triggering a delete workflow.
     *edit            Launches you $EDITOR, then updates when you quit, much like
                     editing a git commit message.
 
-  *delete task
   accept <taskfile> by <username>
   reject <taskfile> by <username>
   *poke <username> about <taskfile>
