@@ -34,9 +34,11 @@ This is a very fake do nothing test notify
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
+notify send --to 'kwokoek@glgroup.com' --message "I am but a simple task" --tags "done" --link "$ID" --context "$FULL_TASK_FILE"
 notify send --to 'igroff@glgroup.com' --message "I am but a simple task" --tags "done" --link "$ID" --context "$FULL_TASK_FILE"
 notify send --to 'wballard@glgroup.com' --message "I am but a simple task" --tags "done" --link "$ID" --context "$FULL_TASK_FILE"
 [39m
+This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 [32ma.yaml added[39m
@@ -71,8 +73,12 @@ USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
 rm "$COMMITMENTS_ROOT/$USER_DIRECTORY/$TASK_FILE"
 notify send --to 'wballard@glgroup.com' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE"
 WHO="wballard@glgroup.com"
+notify send --to 'kwokoek@glgroup.com' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE"
 notify send --to 'igroff@glgroup.com' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE"
+notify send --to 'wballard@glgroup.com' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE"
 [39m
+This is a very fake do nothing test notify
+This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 [32ma.yaml added[39m
@@ -105,9 +111,13 @@ discussion:
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
 WHO="igroff@glgroup.com"
+notify send --to 'kwokoek@glgroup.com' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE"
 notify send --to 'igroff@glgroup.com' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE"
+notify send --to 'kwokoek@glgroup.com' --message "I am but a simple task" --tags "undone" --link "$ID" --context "$FULL_TASK_FILE"
 notify send --to 'igroff@glgroup.com' --message "I am but a simple task" --tags "undone" --link "$ID" --context "$FULL_TASK_FILE"
 [39m
+This is a very fake do nothing test notify
+This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 [32ma.yaml added[39m

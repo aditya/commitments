@@ -7,11 +7,15 @@ notify send --to 'igroff@glgroup.com' --tags "share" --link "$ID" --context "$FU
 USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
 ln -s "$FULL_TASK_FILE" "$COMMITMENTS_ROOT/$USER_DIRECTORY/$TASK_FILE"
 notify send --to 'wballard@glgroup.com' --tags "share" --link "$ID" --context "$FULL_TASK_FILE"
+notify send --to 'kwokoek@glgroup.com' --tags "comment" --link "$ID/50b3b28ec1adba3f50be5059071384b9" --context "$FULL_TASK_FILE"
 notify send --to 'igroff@glgroup.com' --tags "comment" --link "$ID/50b3b28ec1adba3f50be5059071384b9" --context "$FULL_TASK_FILE"
 notify send --to 'wballard@glgroup.com' --tags "comment" --link "$ID/50b3b28ec1adba3f50be5059071384b9" --context "$FULL_TASK_FILE"
+notify send --to 'kwokoek@glgroup.com' --tags "comment" --link "$ID/5a5a43c91784dfb21a3063a6521c92c2" --context "$FULL_TASK_FILE"
 notify send --to 'igroff@glgroup.com' --tags "comment" --link "$ID/5a5a43c91784dfb21a3063a6521c92c2" --context "$FULL_TASK_FILE"
 notify send --to 'wballard@glgroup.com' --tags "comment" --link "$ID/5a5a43c91784dfb21a3063a6521c92c2" --context "$FULL_TASK_FILE"
 [39m
+This is a very fake do nothing test notify
+This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 This is a very fake do nothing test notify
 This is a very fake do nothing test notify

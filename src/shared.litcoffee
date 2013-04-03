@@ -33,6 +33,7 @@ it to generate the workflow.
                 _.keys(prior_version.accept) or []
             new_reject: _.difference _.keys(current_version.reject) or [],
                 _.keys(prior_version.reject) or []
+            everyone: _.filter _.union([current_version.who], [prior_version.who], _.keys(prior_version.links), _.keys(current_version.links)), (x) -> x and x.length
             current_version: current_version
             prior_version: prior_version
 

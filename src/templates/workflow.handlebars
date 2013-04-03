@@ -15,30 +15,30 @@ notify send --to '{{{this}}}' --tags "unshare" --link "$ID" --context "$FULL_TAS
 
 {{#each new_accept}}
 WHO="{{{this}}}"
-{{#eachProperty ../current_version.links}}
-notify send --to '{{{key}}}' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE"
-{{/eachProperty}}
+{{#each ../everyone}}
+notify send --to '{{{this}}}' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE"
+{{/each}}
 {{/each}}
 {{#each new_reject}}
 WHO="{{{this}}}"
-{{#eachProperty ../current_version.links}}
-notify send --to '{{{key}}}' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE"
-{{/eachProperty}}
+{{#each ../everyone}}
+notify send --to '{{{this}}}' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE"
+{{/each}}
 {{/each}}
 
 {{#task_done}}
-{{#eachProperty ../current_version.links}}
-notify send --to '{{{key}}}' --message "{{{../current_version.what}}}" --tags "done" --link "$ID" --context "$FULL_TASK_FILE"
-{{/eachProperty}}
+{{#each ../everyone}}
+notify send --to '{{{this}}}' --message "{{{../current_version.what}}}" --tags "done" --link "$ID" --context "$FULL_TASK_FILE"
+{{/each}}
 {{/task_done}}
 {{#task_undone}}
-{{#eachProperty ../current_version.links}}
-notify send --to '{{{key}}}' --message "{{{../current_version.what}}}" --tags "undone" --link "$ID" --context "$FULL_TASK_FILE"
-{{/eachProperty}}
+{{#each ../everyone}}
+notify send --to '{{{this}}}' --message "{{{../current_version.what}}}" --tags "undone" --link "$ID" --context "$FULL_TASK_FILE"
+{{/each}}
 {{/task_undone}}
 
 {{#updated_comments}}
-{{#eachProperty ../current_version.links}}
-notify send --to '{{{key}}}' --tags "comment" --link "$ID/{{{../hash}}}" --context "$FULL_TASK_FILE"
-{{/eachProperty}}
+{{#each ../everyone}}
+notify send --to '{{{this}}}' --tags "comment" --link "$ID/{{{../hash}}}" --context "$FULL_TASK_FILE"
+{{/each}}
 {{/updated_comments}}
