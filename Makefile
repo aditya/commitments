@@ -1,9 +1,10 @@
-DIFF ?= git --no-pager diff --ignore-all-space --color-words --no-index
+DIFF?=git --no-pager diff --ignore-all-space --color-words --no-index
 COMMITMENTS ?= ./bin/commitments --directory ./___
 
 .PHONY: test
 
-test: _init _add_user _list_user _task_create _task_id_default
+test: 
+	PATH=./test/bin:$$PATH; $(MAKE) _init _add_user _list_user _task_create _task_id_default
 
 test_pass:
 	DIFF=cp $(MAKE) test
