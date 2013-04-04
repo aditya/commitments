@@ -14,6 +14,6 @@ Given that we are doing the lookup based on who and task id.
         task_file = path.join owner_directory, "#{options.taskid}.yaml"
         if fs.existsSync task_file
             console.log "Poking #{options.username} about #{options.taskid}".info
-            shell "notify set --to '#{options.username}' --tags 'poke' --link '#{options.taskid}' --context '#{task_file}'"
+            shell "notify send '#{options.username}' --tags 'poke' --link '#{options.taskid}' --context '#{task_file}'"
         else
             console.log "Poking #{options.username} about #{options.taskid} is hard since they don't have the task".error
