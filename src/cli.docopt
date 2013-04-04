@@ -27,10 +27,3 @@ The available commands are:
     poke            Sends a notification to a user to ask them for a status
                     report about a specific task.
     delete          Empty out a task, triggering a delete workflow.
-    *edit            Launches you $EDITOR, then updates when you quit, much like
-                    editing a git commit message.
-
-
-  TODO: inline without the *
-    finish the *
-    make notify
