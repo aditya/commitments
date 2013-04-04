@@ -33,9 +33,11 @@ key, which is to say, once a comment is edited, it is no longer the same.
         for comment in (task?.discussion?.comments or [])
             comment.hash = contentKey comment
 
-* Write out the task in the owner's repository
+* Write out the task in the owner's repository, classic tmp then rename to make
+sure any concurrent reads of the directory for yaml files don't ge partials
 
-        fs.writeFileSync full_file_name, yaml.safeDump(task)
+        fs.writeFileSync full_file_name + ".tmp", yaml.safeDump(task)
+        fs.renameSync full_file_name + ".tmp", full_file_name
 
 * Run the workflow
 
