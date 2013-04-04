@@ -148,6 +148,7 @@ discussion:
 
 []
 [31mPoking wballard@glgroup.com about a is hard since they don't have the task[39m
+rm 'a.yaml'
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"

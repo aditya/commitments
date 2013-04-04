@@ -18,7 +18,7 @@ Delete simply empties out the file, and then relies on the git based workflow.
 
         file_name = "#{task.id}.yaml"
         full_file_name = path.resolve path.join(owner_directory, file_name)
-        fs.unlinkSync full_file_name
+        shell "cd #{owner_directory}; git rm --force #{file_name}"
 
 * Run the shared workflow
 
