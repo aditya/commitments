@@ -1,5 +1,5 @@
 {
-  "name": "commitments_server",
+  "name": "commitments",
   "version": "0.0.1",
   "description": "Command line server system for commitments",
   "dependencies": {
