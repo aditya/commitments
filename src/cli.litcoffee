@@ -66,12 +66,6 @@ Full on help
     if cli.options['--help']
         console.log cli.help
 
-Commitements root directory needs to be in the environment
-
-    if not process.env['COMMITMENTS_ROOT']
-        process.env['COMMITMENTS_ROOT'] =
-            path.resolve cli.options['--directory'] or process.env['COMMITMENTS_ROOT'] or process.cwd()
-
 Defaults, docopt isn't super smart about this part, so scrub some options.
 
     for name, value of cli.options
@@ -79,6 +73,12 @@ Defaults, docopt isn't super smart about this part, so scrub some options.
             cli.options[name.slice(2)] = value
         if name.slice(0,1) is '<' and name.slice(-1) is '>'
             cli.options[name.slice(1,-1)] = value
+
+Commitements root directory needs to be in the environment as well as the options
+
+    cli.options.directory = process.env['COMMITMENTS_ROOT'] =
+        cli.options['--directory'] or process.env['COMMITMENTS_ROOT'] or process.cwd()
+
 
 Debugging information helps sometimes
 
