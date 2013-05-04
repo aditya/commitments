@@ -9,7 +9,7 @@ get any additional escaping.
 
     module.exports = (options) ->
         username = options.username.toLowerCase()
-        user_directory = path.join process.env['COMMITMENTS_ROOT'], username
+        user_directory = path.join options.directory, username
         if not fs.existsSync user_directory
             fs.mkdirSync user_directory
         #just to discard the output here
@@ -19,5 +19,7 @@ get any additional escaping.
 
 Just print the created directory, this way we can use this command in scripts.
 
-        process.stdout.write path.relative process.env['COMMITMENTS_ROOT'], "#{user_directory}"
+        process.stdout.write path.relative options.directory, "#{user_directory}"
+        process.stdout.write '\n'
+        user_directory
 

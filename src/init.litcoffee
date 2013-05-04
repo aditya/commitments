@@ -5,7 +5,6 @@ of a root directory, then one git repository per user.
     path = require 'path'
     fs = require 'fs'
     module.exports = (options) ->
-        console.log 'initializing'.info
 
 Be a sport and make sure the directory exists
 
@@ -17,11 +16,9 @@ something interesting to put in it.
 
         config_file = path.join options.directory, '.commitments'
         if fs.existsSync config_file
-            console.log "already initialized".error
-            process.exit 1
+            process.exit 0
         else
             config =
                 created: Date.now()
             fs.writeFileSync config_file,  yaml.safeDump config
-            console.log "configuration: #{config_file}".green
 

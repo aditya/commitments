@@ -3,8 +3,8 @@ COMMITMENTS?=./bin/commitments --directory ./___
 
 .PHONY: test
 
-test: 
-	PATH=./test/bin:$$PATH; $(MAKE) _init _add_user _list_user _task_create _task_id_default _task_workflow
+test:
+	export PATH=$(PWD)/test/bin:$$PATH; $(MAKE) _init _add_user _list_user _task_create _task_id_default _task_workflow
 
 test_pass:
 	DIFF=cp $(MAKE) test
@@ -25,21 +25,21 @@ _list_user: _add_user
 
 _task_create: _init
 	#initial task
-	time cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
+	cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@
 
 _task_workflow: _init
 	#shared results, there are tasks
-	time cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
+	cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
 	$(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
 	$(COMMITMENTS) poke wballard@glgroup.com about a | tee -a /tmp/$@
 	$(COMMITMENTS) poke igroff@glgroup.com about a | tee -a /tmp/$@
 	#going through a simulated task workflow
-	time cat test/samples/002.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
-	time cat test/samples/003.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
-	time cat test/samples/004.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
+	cat test/samples/002.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
+	cat test/samples/003.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
+	cat test/samples/004.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	#unshared results, no more tasks
-	time cat test/samples/001.yaml | $(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
+	cat test/samples/001.yaml | $(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
 	#and a blank poke
 	$(COMMITMENTS) poke wballard@glgroup.com about a | tee -a /tmp/$@
 	#and a delete
@@ -47,5 +47,5 @@ _task_workflow: _init
 	$(DIFF) /tmp/$@ test/expected/$@
 
 _task_id_default: _init
-	time cat test/samples/no_id.yaml | $(COMMITMENTS) update task | tee /tmp/$@
+	cat test/samples/no_id.yaml | $(COMMITMENTS) update task | tee /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@

@@ -1,6 +1,10 @@
+kwokoek@glgroup.com
+kwokoek@glgroup.com
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
+OWNER="kwokoek@glgroup.com"
+cd "$COMMITMENTS_ROOT"
 [39m
 [32ma.yaml added[39m
 id: a
@@ -26,14 +30,17 @@ discussion:
       what: "Told\\n\\nYou\\n\\nSo."
       hash: 5a5a43c91784dfb21a3063a6521c92c2
 
+wballard@glgroup.com
 [{"id":"a","what":"I am but a simple task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1},"discussion":{"show":true,"comments":[{"who":"wballard@glgroup.com","when":"02/21/2013","what":"Yeah! Comments!","hash":"50b3b28ec1adba3f50be5059071384b9"},{"who":"igroff@glgroup.com","when":"02/24/2013","what":"Told\\n\\nYou\\n\\nSo.","hash":"5a5a43c91784dfb21a3063a6521c92c2"}]}}]
-[32mPoking wballard@glgroup.com about a[39m
-This is a very fake do nothing test notify
-[32mPoking igroff@glgroup.com about a[39m
-This is a very fake do nothing test notify
+[31mPoking wballard@glgroup.com about a is hard since they don't have the task[39m
+[31mPoking igroff@glgroup.com about a is hard since they don't have the task[39m
+kwokoek@glgroup.com
+kwokoek@glgroup.com
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
+OWNER="kwokoek@glgroup.com"
+cd "$COMMITMENTS_ROOT"
 notify send  'kwokoek@glgroup.com' --message "I am but a simple task" --tags "done" --link "$ID" --context "$FULL_TASK_FILE"
 notify send  'igroff@glgroup.com' --message "I am but a simple task" --tags "done" --link "$ID" --context "$FULL_TASK_FILE"
 notify send  'wballard@glgroup.com' --message "I am but a simple task" --tags "done" --link "$ID" --context "$FULL_TASK_FILE"
@@ -66,11 +73,15 @@ discussion:
       what: "Told\\n\\nYou\\n\\nSo."
       hash: 5a5a43c91784dfb21a3063a6521c92c2
 
+kwokoek@glgroup.com
+kwokoek@glgroup.com
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
+OWNER="kwokoek@glgroup.com"
+cd "$COMMITMENTS_ROOT"
 USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
-rm "$COMMITMENTS_ROOT/$USER_DIRECTORY/$TASK_FILE"
+rm "./$USER_DIRECTORY/$TASK_FILE"
 notify send  'wballard@glgroup.com' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE"
 WHO="wballard@glgroup.com"
 notify send  'kwokoek@glgroup.com' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE"
@@ -107,9 +118,13 @@ discussion:
       what: "Told\\n\\nYou\\n\\nSo."
       hash: 5a5a43c91784dfb21a3063a6521c92c2
 
+kwokoek@glgroup.com
+kwokoek@glgroup.com
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
+OWNER="kwokoek@glgroup.com"
+cd "$COMMITMENTS_ROOT"
 WHO="igroff@glgroup.com"
 notify send  'kwokoek@glgroup.com' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE"
 notify send  'igroff@glgroup.com' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE"
@@ -146,14 +161,19 @@ discussion:
       what: "Told\\n\\nYou\\n\\nSo."
       hash: 5a5a43c91784dfb21a3063a6521c92c2
 
+wballard@glgroup.com
 []
 [31mPoking wballard@glgroup.com about a is hard since they don't have the task[39m
+kwokoek@glgroup.com
 rm 'a.yaml'
+kwokoek@glgroup.com
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
+OWNER="kwokoek@glgroup.com"
+cd "$COMMITMENTS_ROOT"
 USER_DIRECTORY=$(commitments add user 'igroff@glgroup.com')
-rm "$COMMITMENTS_ROOT/$USER_DIRECTORY/$TASK_FILE"
+rm "./$USER_DIRECTORY/$TASK_FILE"
 notify send  'igroff@glgroup.com' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE"
 [39m
 This is a very fake do nothing test notify

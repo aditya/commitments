@@ -1,11 +1,15 @@
+kwokoek@glgroup.com
+kwokoek@glgroup.com
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
+OWNER="kwokoek@glgroup.com"
+cd "$COMMITMENTS_ROOT"
 USER_DIRECTORY=$(commitments add user 'igroff@glgroup.com')
-ln -s "$FULL_TASK_FILE" "$COMMITMENTS_ROOT/$USER_DIRECTORY/$TASK_FILE"
+ln -s "../$OWNER/$TASK_FILE" "./$USER_DIRECTORY/$TASK_FILE"
 notify send  'igroff@glgroup.com' --tags "share" --link "$ID" --context "$FULL_TASK_FILE"
 USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
-ln -s "$FULL_TASK_FILE" "$COMMITMENTS_ROOT/$USER_DIRECTORY/$TASK_FILE"
+ln -s "../$OWNER/$TASK_FILE" "./$USER_DIRECTORY/$TASK_FILE"
 notify send  'wballard@glgroup.com' --tags "share" --link "$ID" --context "$FULL_TASK_FILE"
 notify send  'kwokoek@glgroup.com' --tags "comment" --link "$ID/50b3b28ec1adba3f50be5059071384b9" --context "$FULL_TASK_FILE"
 notify send  'igroff@glgroup.com' --tags "comment" --link "$ID/50b3b28ec1adba3f50be5059071384b9" --context "$FULL_TASK_FILE"

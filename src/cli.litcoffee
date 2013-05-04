@@ -76,11 +76,16 @@ Defaults, docopt isn't super smart about this part, so scrub some options.
 
 Commitements root directory needs to be in the environment as well as the options
 
-    cli.options.directory = process.env['COMMITMENTS_ROOT'] =
-        cli.options['--directory'] or process.env['COMMITMENTS_ROOT'] or process.cwd()
+    cli.options.directory =
+        path.resolve(cli.options['--directory'] or
+            process.env['COMMITMENTS_ROOT'] or
+            process.cwd())
 
+Make sure all sub-shelled processes see the same root directory
 
-Debugging information helps sometimes
+    process.env['COMMITMENTS_ROOT'] = cli.options.directory
+
+Debugging information helps somes
 
     if cli.options['--debug']
         console.log cli.options

@@ -5,14 +5,14 @@ Shared bits of update and delete, this is the 'workflow' step.
     path = require 'path'
     md5 = require 'MD5'
     _ = require 'lodash'
+    add = require './add'
 
     module.exports.workflow = (task, options) ->
 
-
 * Make sure the owner exists, self shelling to get the user directory
 
-        owner_directory = path.join process.env['COMMITMENTS_ROOT'],
-            $("commitments add user '#{task.who}'")
+        options.username = task.who
+        owner_directory = add options
         file_name = "#{task.id}.yaml"
         full_file_name = path.resolve path.join(owner_directory, file_name)
 
@@ -22,7 +22,8 @@ it to generate the workflow.
         current_version = task
         prior_version = (yaml.safeLoad $("cd #{owner_directory}; git show HEAD:#{file_name}") or '') or {}
         diff =
-            file_name: path.relative process.env['COMMITMENTS_ROOT'], full_file_name
+            owner: task.who
+            file_name: path.relative options.directory, full_file_name
             task_done: (current_version.done and (not prior_version.done)) or false
             task_undone: (prior_version.done and (not current_version.done)) or false
             added_links: _.difference _.keys(current_version.links) or [],

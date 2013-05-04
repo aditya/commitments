@@ -7,6 +7,7 @@ Here is the outline of the workflow:
     md5 = require 'MD5'
     _ = require 'lodash'
     shared = require './shared'
+    add = require './add'
 
 All about updating tasks.
 
@@ -20,8 +21,8 @@ All about updating tasks.
 
 * Make sure the owner exists, self shelling to get the user directory
 
-        owner_directory = path.join process.env['COMMITMENTS_ROOT'],
-            $("commitments add user '#{task.who}'")
+        options.username = task.who
+        owner_directory = add options
         file_name = "#{task.id}.yaml"
         full_file_name = path.resolve path.join(owner_directory, file_name)
 

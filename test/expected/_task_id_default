@@ -1,6 +1,10 @@
+kwokoek@glgroup.com
+kwokoek@glgroup.com
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/54eaf965e01d0e7daa878a6b1c0df678.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="54eaf965e01d0e7daa878a6b1c0df678"
+OWNER="kwokoek@glgroup.com"
+cd "$COMMITMENTS_ROOT"
 [39m
 [32m54eaf965e01d0e7daa878a6b1c0df678.yaml added[39m
 what: I am but a simple task

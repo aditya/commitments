@@ -1,15 +1,18 @@
 FULL_TASK_FILE="$COMMITMENTS_ROOT/{{{file_name}}}"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="{{{current_version.id}}}"
+OWNER="{{{owner}}}"
+
+cd "$COMMITMENTS_ROOT"
 
 {{#each added_links}}
 USER_DIRECTORY=$(commitments add user '{{{this}}}')
-ln -s "$FULL_TASK_FILE" "$COMMITMENTS_ROOT/$USER_DIRECTORY/$TASK_FILE"
+ln -s "../$OWNER/$TASK_FILE" "./$USER_DIRECTORY/$TASK_FILE"
 notify send  '{{{this}}}' --tags "share" --link "$ID" --context "$FULL_TASK_FILE"
 {{/each}}
 {{#each removed_links}}
 USER_DIRECTORY=$(commitments add user '{{{this}}}')
-rm "$COMMITMENTS_ROOT/$USER_DIRECTORY/$TASK_FILE"
+rm "./$USER_DIRECTORY/$TASK_FILE"
 notify send  '{{{this}}}' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE"
 {{/each}}
 
