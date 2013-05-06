@@ -14,7 +14,7 @@ Delete simply empties out the file, and then relies on the git based workflow.
 
         options.username = task.who
         options.taskid = task.id
-        owner_directory = add options
+        owner_directory = add options, true
 
 * Empty out the task file
 

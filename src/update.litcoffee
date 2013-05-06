@@ -22,7 +22,7 @@ All about updating tasks.
 * Make sure the owner exists, self shelling to get the user directory
 
         options.username = task.who
-        owner_directory = add options
+        owner_directory = add options, true
         file_name = "#{task.id}.yaml"
         full_file_name = path.resolve path.join(owner_directory, file_name)
 

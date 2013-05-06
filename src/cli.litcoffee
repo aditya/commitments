@@ -8,6 +8,7 @@ modules and the command sub modules here.
         init: require './init'
         poke: require './poke'
         delete: require './delete'
+        about: require './about'
     _ = require 'lodash'
     docopt = require 'docopt'
     handlebars = require 'handlebars'

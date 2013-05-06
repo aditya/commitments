@@ -32,16 +32,13 @@ _task_workflow: _init
 	#shared results, there are tasks
 	cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
 	$(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
-	$(COMMITMENTS) poke wballard@glgroup.com about a | tee -a /tmp/$@
-	$(COMMITMENTS) poke igroff@glgroup.com about a | tee -a /tmp/$@
+	cat test/samples/001.yaml | $(COMMITMENTS) poke task | tee -a /tmp/$@
 	#going through a simulated task workflow
 	cat test/samples/002.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	cat test/samples/003.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	cat test/samples/004.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	#unshared results, no more tasks
-	cat test/samples/001.yaml | $(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
-	#and a blank poke
-	$(COMMITMENTS) poke wballard@glgroup.com about a | tee -a /tmp/$@
+	$(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
 	#and a delete
 	cat test/samples/001.yaml | $(COMMITMENTS) delete task | tee -a /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@
