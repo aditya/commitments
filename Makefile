@@ -43,7 +43,7 @@ _task_workflow: _init
 	#and a blank poke
 	$(COMMITMENTS) poke wballard@glgroup.com about a | tee -a /tmp/$@
 	#and a delete
-	$(COMMITMENTS) delete a by kwokoek@glgroup.com | tee -a /tmp/$@
+	cat test/samples/001.yaml | $(COMMITMENTS) delete task | tee -a /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@
 
 _task_id_default: _init

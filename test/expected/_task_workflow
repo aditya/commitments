@@ -178,4 +178,4 @@ notify send  'igroff@glgroup.com' --tags "unshare" --link "$ID" --context "$FULL
 [39m
 This is a very fake do nothing test notify
 [32ma.yaml added[39m
-[32ma deleted by kwokoek@glgroup.com[39m
+[32ma deleted[39m
