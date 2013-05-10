@@ -4,7 +4,7 @@ COMMITMENTS?=./bin/commitments --directory ./___
 .PHONY: test
 
 test:
-	export PATH=$(PWD)/test/bin:$$PATH; $(MAKE) _init _add_user _list_user _task_create _task_id_default _task_workflow
+	export PATH=$(PWD)/test/bin:$$PATH; export USER="howdy@hi.com"; $(MAKE) _init _add_user _list_user _task_create _task_id_default _task_workflow
 
 test_pass:
 	DIFF=cp $(MAKE) test

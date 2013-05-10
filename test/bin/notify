@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo This is a very fake do nothing test notify
+echo This is a very fake do nothing test notify $@

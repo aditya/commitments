@@ -25,4 +25,4 @@ Given that we are doing the lookup based on who and task id.
             users.push task.who
             for username in users
                 console.log "Poking #{username} about #{task.id}".info
-                shell "notify send '#{username}' --tags '' --link '#{task.id}' --context '#{task_file}'"
+                shell "notify send '#{username}' --tags '' --link '#{task.id}' --context '#{task_file}' --from \"$USER\""

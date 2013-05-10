@@ -8,40 +8,40 @@ cd "$COMMITMENTS_ROOT"
 {{#each added_links}}
 USER_DIRECTORY=$(commitments add user '{{{this}}}')
 ln -s "../$OWNER/$TASK_FILE" "./$USER_DIRECTORY/$TASK_FILE"
-notify send  '{{{this}}}' --tags "share" --link "$ID" --context "$FULL_TASK_FILE"
+notify send  '{{{this}}}' --tags "share" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 {{#each removed_links}}
 USER_DIRECTORY=$(commitments add user '{{{this}}}')
 rm "./$USER_DIRECTORY/$TASK_FILE"
-notify send  '{{{this}}}' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE"
+notify send  '{{{this}}}' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 
 {{#each new_accept}}
 WHO="{{{this}}}"
 {{#each ../everyone}}
-notify send  '{{{this}}}' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE"
+notify send  '{{{this}}}' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 {{/each}}
 {{#each new_reject}}
 WHO="{{{this}}}"
 {{#each ../everyone}}
-notify send  '{{{this}}}' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE"
+notify send  '{{{this}}}' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 {{/each}}
 
 {{#task_done}}
 {{#each ../everyone}}
-notify send  '{{{this}}}' --message "{{{../current_version.what}}}" --tags "done" --link "$ID" --context "$FULL_TASK_FILE"
+notify send  '{{{this}}}' --message "{{{../current_version.what}}}" --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 {{/task_done}}
 {{#task_undone}}
 {{#each ../everyone}}
-notify send  '{{{this}}}' --message "{{{../current_version.what}}}" --tags "undone" --link "$ID" --context "$FULL_TASK_FILE"
+notify send  '{{{this}}}' --message "{{{../current_version.what}}}" --tags "undone" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 {{/task_undone}}
 
 {{#updated_comments}}
 {{#each ../everyone}}
-notify send  '{{{this}}}' --tags "comment" --link "$ID/{{{../hash}}}" --context "$FULL_TASK_FILE"
+notify send  '{{{this}}}' --tags "comment" --link "$ID/{{{../hash}}}" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 {{/updated_comments}}

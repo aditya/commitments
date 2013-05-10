@@ -29,3 +29,9 @@ The available commands are:
     poke task       Sends a notification to a user to ask them for a status
                     report about a specific task.
     delete task     Empty out a task, triggering a delete workflow.
+
+Environment Variables:
+    $USER             Used to indicate who is doing the update, this is used in
+                      notification messages.
+    $COMMITMENTS_ROOT This is used as a default value so you don't need to 
+                      use --directory all the time.
