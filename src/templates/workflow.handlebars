@@ -19,24 +19,24 @@ notify send  '{{{this}}}' --tags "unshare" --link "$ID" --context "$FULL_TASK_FI
 {{#each new_accept}}
 WHO="{{{this}}}"
 {{#each ../everyone}}
-notify send  '{{{this}}}' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  '{{{this}}}' --tags "accept" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 {{/each}}
 {{#each new_reject}}
 WHO="{{{this}}}"
 {{#each ../everyone}}
-notify send  '{{{this}}}' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  '{{{this}}}' --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 {{/each}}
 
 {{#task_done}}
 {{#each ../everyone}}
-notify send  '{{{this}}}' --message "{{{../current_version.what}}}" --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  '{{{this}}}'  --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 {{/task_done}}
 {{#task_undone}}
 {{#each ../everyone}}
-notify send  '{{{this}}}' --message "{{{../current_version.what}}}" --tags "undone" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  '{{{this}}}' --tags "undone" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 {{/task_undone}}
 

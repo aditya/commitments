@@ -43,13 +43,13 @@ TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
 OWNER="kwokoek@glgroup.com"
 cd "$COMMITMENTS_ROOT"
-notify send  'kwokoek@glgroup.com' --message "I am but a simple task" --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'igroff@glgroup.com' --message "I am but a simple task" --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'wballard@glgroup.com' --message "I am but a simple task" --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'kwokoek@glgroup.com'  --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'igroff@glgroup.com'  --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'wballard@glgroup.com'  --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 [39m
-This is a very fake do nothing test notify send kwokoek@glgroup.com --message I am but a simple task --tags done --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send igroff@glgroup.com --message I am but a simple task --tags done --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send wballard@glgroup.com --message I am but a simple task --tags done --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send kwokoek@glgroup.com --tags done --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send igroff@glgroup.com --tags done --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send wballard@glgroup.com --tags done --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 [32ma.yaml added[39m
 id: a
 what: I am but a simple task
@@ -85,14 +85,14 @@ USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
 rm "./$USER_DIRECTORY/$TASK_FILE"
 notify send  'wballard@glgroup.com' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 WHO="wballard@glgroup.com"
-notify send  'kwokoek@glgroup.com' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'igroff@glgroup.com' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'wballard@glgroup.com' --message "$WHO" --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'kwokoek@glgroup.com' --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'igroff@glgroup.com' --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'wballard@glgroup.com' --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 [39m
 This is a very fake do nothing test notify send wballard@glgroup.com --tags unshare --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send kwokoek@glgroup.com --message wballard@glgroup.com --tags reject --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send igroff@glgroup.com --message wballard@glgroup.com --tags reject --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send wballard@glgroup.com --message wballard@glgroup.com --tags reject --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send kwokoek@glgroup.com --tags reject --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send igroff@glgroup.com --tags reject --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send wballard@glgroup.com --tags reject --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 [32ma.yaml added[39m
 id: a
 what: I am but a simple task
@@ -126,15 +126,15 @@ ID="a"
 OWNER="kwokoek@glgroup.com"
 cd "$COMMITMENTS_ROOT"
 WHO="igroff@glgroup.com"
-notify send  'kwokoek@glgroup.com' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'igroff@glgroup.com' --message "$WHO" --tags "accept" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'kwokoek@glgroup.com' --message "I am but a simple task" --tags "undone" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'igroff@glgroup.com' --message "I am but a simple task" --tags "undone" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'kwokoek@glgroup.com' --tags "accept" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'igroff@glgroup.com' --tags "accept" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'kwokoek@glgroup.com' --tags "undone" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'igroff@glgroup.com' --tags "undone" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 [39m
-This is a very fake do nothing test notify send kwokoek@glgroup.com --message igroff@glgroup.com --tags accept --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send igroff@glgroup.com --message igroff@glgroup.com --tags accept --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send kwokoek@glgroup.com --message I am but a simple task --tags undone --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send igroff@glgroup.com --message I am but a simple task --tags undone --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send kwokoek@glgroup.com --tags accept --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send igroff@glgroup.com --tags accept --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send kwokoek@glgroup.com --tags undone --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send igroff@glgroup.com --tags undone --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 [32ma.yaml added[39m
 id: a
 what: I am but a simple task
