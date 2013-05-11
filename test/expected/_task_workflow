@@ -23,14 +23,14 @@ discussion:
     - who: "wballard@glgroup.com"
       when: 02/21/2013
       what: "Yeah! Comments!"
-      hash: 50b3b28ec1adba3f50be5059071384b9
+      hash: d93ba2138f5050aeb1b42122f36fa9b2
     - who: "igroff@glgroup.com"
       when: 02/24/2013
       what: "Told\\n\\nYou\\n\\nSo."
-      hash: 5a5a43c91784dfb21a3063a6521c92c2
+      hash: 79a971a2463afe11f4a75a8862cdfab9
 
 wballard@glgroup.com
-[{"id":"a","what":"I am but a simple task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1},"discussion":{"show":true,"comments":[{"who":"wballard@glgroup.com","when":"02/21/2013","what":"Yeah! Comments!","hash":"50b3b28ec1adba3f50be5059071384b9"},{"who":"igroff@glgroup.com","when":"02/24/2013","what":"Told\\n\\nYou\\n\\nSo.","hash":"5a5a43c91784dfb21a3063a6521c92c2"}]}}]
+[{"id":"a","what":"I am but a simple task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1},"discussion":{"show":true,"comments":[{"who":"wballard@glgroup.com","when":"02/21/2013","what":"Yeah! Comments!","hash":"d93ba2138f5050aeb1b42122f36fa9b2"},{"who":"igroff@glgroup.com","when":"02/24/2013","what":"Told\\n\\nYou\\n\\nSo.","hash":"79a971a2463afe11f4a75a8862cdfab9"}]}}]
 [32mPoking igroff@glgroup.com about a[39m
 This is a very fake do nothing test notify send igroff@glgroup.com --tags --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 [32mPoking wballard@glgroup.com about a[39m
@@ -69,11 +69,11 @@ discussion:
     - who: "wballard@glgroup.com"
       when: 02/21/2013
       what: "Yeah! Comments!"
-      hash: 50b3b28ec1adba3f50be5059071384b9
+      hash: d93ba2138f5050aeb1b42122f36fa9b2
     - who: "igroff@glgroup.com"
       when: 02/24/2013
       what: "Told\\n\\nYou\\n\\nSo."
-      hash: 5a5a43c91784dfb21a3063a6521c92c2
+      hash: 79a971a2463afe11f4a75a8862cdfab9
 
 kwokoek@glgroup.com
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
@@ -113,11 +113,11 @@ discussion:
     - who: "wballard@glgroup.com"
       when: 02/21/2013
       what: "Yeah! Comments!"
-      hash: 50b3b28ec1adba3f50be5059071384b9
+      hash: d93ba2138f5050aeb1b42122f36fa9b2
     - who: "igroff@glgroup.com"
       when: 02/24/2013
       what: "Told\\n\\nYou\\n\\nSo."
-      hash: 5a5a43c91784dfb21a3063a6521c92c2
+      hash: 79a971a2463afe11f4a75a8862cdfab9
 
 kwokoek@glgroup.com
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
@@ -155,11 +155,11 @@ discussion:
     - who: "wballard@glgroup.com"
       when: 02/21/2013
       what: "Yeah! Comments!"
-      hash: 50b3b28ec1adba3f50be5059071384b9
+      hash: d93ba2138f5050aeb1b42122f36fa9b2
     - who: "igroff@glgroup.com"
       when: 02/24/2013
       what: "Told\\n\\nYou\\n\\nSo."
-      hash: 5a5a43c91784dfb21a3063a6521c92c2
+      hash: 79a971a2463afe11f4a75a8862cdfab9
 
 wballard@glgroup.com
 []
