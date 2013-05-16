@@ -6,9 +6,13 @@ OWNER="kwokoek@glgroup.com"
 cd "$COMMITMENTS_ROOT"
 USER_DIRECTORY=$(commitments add user 'igroff@glgroup.com')
 ln -s "../$OWNER/$TASK_FILE" "./$USER_DIRECTORY/$TASK_FILE"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" add "${TASK_FILE}"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
 notify send  'igroff@glgroup.com' --tags "share" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
 ln -s "../$OWNER/$TASK_FILE" "./$USER_DIRECTORY/$TASK_FILE"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" add "${TASK_FILE}"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
 notify send  'wballard@glgroup.com' --tags "share" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'kwokoek@glgroup.com' --tags "comment" --link "$ID/d93ba2138f5050aeb1b42122f36fa9b2" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'igroff@glgroup.com' --tags "comment" --link "$ID/d93ba2138f5050aeb1b42122f36fa9b2" --context "$FULL_TASK_FILE" --from "$USER"

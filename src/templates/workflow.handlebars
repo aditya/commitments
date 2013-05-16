@@ -8,6 +8,8 @@ cd "$COMMITMENTS_ROOT"
 {{#each added_links}}
 USER_DIRECTORY=$(commitments add user '{{{this}}}')
 ln -s "../$OWNER/$TASK_FILE" "./$USER_DIRECTORY/$TASK_FILE"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" add "${TASK_FILE}"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
 notify send  '{{{this}}}' --tags "share" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 {{#each removed_links}}
