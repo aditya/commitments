@@ -1,6 +1,6 @@
 #on purpose, the file name of this sample doesn't match the ID.
-id: 'a'
-what: 'I am but a simple task'
+id: 'b'
+what: 'I am another task'
 tags:
     Tagged: 1
     Important: 1
@@ -10,14 +10,3 @@ who: 'kwokoek@glgroup.com'
 links:
     'igroff@glgroup.com': 1
     'wballard@glgroup.com': 1
-discussion:
-    show: true
-    comments:
-        -
-            who: 'wballard@glgroup.com'
-            when: '02/21/2013'
-            what: 'Yeah! Comments!'
-        -
-            who: 'igroff@glgroup.com'
-            when: '02/24/2013'
-            what: 'Told\n\nYou\n\nSo.'

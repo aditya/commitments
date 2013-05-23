@@ -21,10 +21,13 @@ uses the shared links to just get the content of shared tasks.
     tasks = (options) ->
         owner_directory = add options
         ret = []
+        limit = Number(options['--limit'] or 1024)
         for name in fs.readdirSync owner_directory
             if name.slice(-4) is 'yaml'
                 content = fs.readFileSync(path.join(owner_directory, name), 'utf8')
                 ret.push yaml.safeLoad(content)
+                if ret.length >= limit
+                    break
         console.log JSON.stringify ret
 
     module.exports = (options) ->

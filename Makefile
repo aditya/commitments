@@ -26,6 +26,9 @@ _list_user: _add_user
 _task_create: _init
 	#initial task
 	cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
+	cat test/samples/1-001.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
+	#and with a limit
+	$(COMMITMENTS) list tasks wballard@glgroup.com --limit 1 | tee -a /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@
 
 _task_workflow: _init

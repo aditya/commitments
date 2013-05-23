@@ -4,7 +4,7 @@ Usage:
     commitments [options] init
     commitments [options] add user <username>
     commitments [options] list users
-    commitments [options] list tasks <username>
+    commitments [options] list tasks <username> [--limit=<limit>]
     commitments [options] about user <username>
     commitments [options] update task
     commitments [options] delete task
