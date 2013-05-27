@@ -24,10 +24,13 @@ uses the shared links to just get the content of shared tasks.
         limit = Number(options['--limit'] or 1024)
         for name in fs.readdirSync owner_directory
             if name.slice(-4) is 'yaml'
-                content = fs.readFileSync(path.join(owner_directory, name), 'utf8')
-                ret.push yaml.safeLoad(content)
-                if ret.length >= limit
-                    break
+                try
+                    content = fs.readFileSync(path.join(owner_directory, name), 'utf8')
+                    ret.push yaml.safeLoad(content)
+                    if ret.length >= limit
+                        break
+                catch ex
+                    console.error ex
         console.log JSON.stringify ret
 
     module.exports = (options) ->
