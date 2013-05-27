@@ -19,7 +19,7 @@ Listing all the tasks for a user, this ends up being a nice big JSON array and
 uses the shared links to just get the content of shared tasks.
 
     tasks = (options) ->
-        owner_directory = add options
+        owner_directory = add options, true
         ret = []
         limit = Number(options['--limit'] or 1024)
         for name in fs.readdirSync owner_directory
