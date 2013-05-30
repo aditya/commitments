@@ -1,4 +1,3 @@
-kwokoek@glgroup.com
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/b.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="b"
@@ -30,7 +29,6 @@ links:
   "igroff@glgroup.com": 1
   "wballard@glgroup.com": 1
 
-kwokoek@glgroup.com
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"

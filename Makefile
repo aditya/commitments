@@ -4,7 +4,7 @@ COMMITMENTS?=./bin/commitments --directory ./___
 .PHONY: test
 
 test:
-	export PATH=$(PWD)/test/bin:$$PATH; export USER="howdy@hi.com"; $(MAKE) _init _add_user _list_user _task_create _task_id_default _task_workflow
+	export PATH=$(PWD)/test/bin:$$PATH; export USER="howdy@hi.com"; $(MAKE) _init _add_user _list_user _task_create _task_id_default _task_workflow _task_archive
 
 test_pass:
 	DIFF=cp $(MAKE) test
@@ -48,4 +48,16 @@ _task_workflow: _init
 
 _task_id_default: _init
 	cat test/samples/no_id.yaml | $(COMMITMENTS) update task | tee /tmp/$@
+	$(DIFF) /tmp/$@ test/expected/$@
+
+_task_archive: _init
+	#initial task creates
+	cat test/samples/001.yaml | $(COMMITMENTS) update task
+	cat test/samples/1-001.yaml | $(COMMITMENTS) update task
+	#to the archive with you!
+	cat test/samples/001.yaml | $(COMMITMENTS) archive task | tee /tmp/$@
+	#un-archived
+	$(COMMITMENTS) list tasks kwokoek@glgroup.com | tee -a /tmp/$@
+	#archived
+	$(COMMITMENTS) list archived tasks kwokoek@glgroup.com | tee -a /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@

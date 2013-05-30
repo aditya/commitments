@@ -1,4 +1,4 @@
-Delete simply empties out the file, and then relies on the git based workflow.
+Archive moves the task, and unlinks from other users.
 
     shared = require './shared'
     fs = require 'fs'
@@ -22,21 +22,15 @@ Not very exciting, but get the task from stdin.
 
             options.username = task.who
             options.taskid = task.id
-            owner_directory = add options, true
+            add options, true
 
-* Empty out the task file
-
-            file_name = "#{task.id}.yaml"
-            full_file_name = path.resolve path.join(owner_directory, file_name)
-            shell "cd $COMMITMENTS_ROOT; cd #{owner_directory}; git rm --force #{file_name}"
-
-* Run the shared workflow, now with an emptied out task to drive proper diff
+* Run the shared workflow, this generates and runs shell script
 
             deleted_task =
                 who: task.who
                 id: task.id
-            shared.workflow deleted_task, options
-            console.log "#{task.id} deleted".info
+            shared.archive task, options
+            console.log "#{task.id} archived".info
 
 * Go!
 

@@ -10,9 +10,12 @@ get any additional escaping.
 
     module.exports = (options, silent) ->
         username = options.username.toLowerCase()
-        user_directory = path.join options.directory, username
+        options.userDirectory = user_directory = path.join options.directory, username
+        options.archiveDirectory = archive_directory = path.join user_directory, '.archive'
         if not fs.existsSync user_directory
             fs.mkdirSync user_directory
+        if not fs.existsSync archive_directory
+            fs.mkdirSync archive_directory
         #just to discard the output here
         $ "git", "--git-dir", "#{user_directory}/.git",
             "--work-tree", user_directory,

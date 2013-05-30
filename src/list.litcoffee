@@ -19,13 +19,17 @@ Listing all the tasks for a user, this ends up being a nice big JSON array and
 uses the shared links to just get the content of shared tasks.
 
     tasks = (options) ->
-        owner_directory = add options, true
+        add options, true
+        if options.archived
+            dir = options.archiveDirectory
+        else
+            dir = options.userDirectory
         ret = []
         limit = Number(options['--limit'] or 1024)
-        for name in fs.readdirSync owner_directory
+        for name in fs.readdirSync dir
             if name.slice(-4) is 'yaml'
                 try
-                    content = fs.readFileSync(path.join(owner_directory, name), 'utf8')
+                    content = fs.readFileSync(path.join(dir, name), 'utf8')
                     ret.push yaml.safeLoad(content)
                     if ret.length >= limit
                         break

@@ -1,0 +1,12 @@
+FULL_TASK_FILE="$COMMITMENTS_ROOT/{{{file_name}}}"
+TASK_FILE=$(basename $FULL_TASK_FILE)
+ID="{{{id}}}"
+OWNER="{{{who}}}"
+
+cd "$COMMITMENTS_ROOT"
+{{#eachProperty links}}
+USER_DIRECTORY=$(commitments add user '{{{key}}}')
+rm "./$USER_DIRECTORY/$TASK_FILE"
+{{/eachProperty}}
+
+git --git-dir "{{{owner_directory}}}/.git" --work-tree "{{{owner_directory}}}" mv "{{{full_file_name}}}" "{{{archive_file_name}}}"

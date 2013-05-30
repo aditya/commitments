@@ -7,12 +7,14 @@ Shared bits of update and delete, this is the 'workflow' step.
     _ = require 'lodash'
     add = require './add'
 
+The primary workflow:
+
     module.exports.workflow = (task, options) ->
 
 * Make sure the owner exists, self shelling to get the user directory
 
         options.username = task.who
-        owner_directory = add options
+        owner_directory = add options, true
         file_name = "#{task.id}.yaml"
         full_file_name = path.resolve path.join(owner_directory, file_name)
 
@@ -71,3 +73,24 @@ here if there were no errors causing an abort above
             "--work-tree", owner_directory,
             "commit", "--allow-empty-message", "--message", "''"
 
+The archive workflow:
+
+    module.exports.archive = (task, options) ->
+
+        options.username = task.who
+        task.owner_directory = owner_directory = add options, true
+        task.file_name = file_name = "#{task.id}.yaml"
+        task.full_file_name = path.resolve path.join(options.userDirectory, file_name)
+        task.archive_file_name = path.resolve path.join(options.archiveDirectory, file_name)
+
+* Write out the diff generated script, and then shell it
+
+        todo = render 'archive', task
+        console.log todo.info
+        todo_file = "/tmp/#{md5(todo)}"
+        fs.writeFileSync todo_file, todo
+        shell "cat '#{todo_file}'
+        | $SHELL", true
+        $ "git", "--git-dir", "#{owner_directory}/.git",
+            "--work-tree", owner_directory,
+            "commit", "--allow-empty-message", "--message", "''"

@@ -5,9 +5,11 @@ Usage:
     commitments [options] add user <username>
     commitments [options] list users
     commitments [options] list tasks <username> [--limit=<limit>]
+    commitments [options] list archived tasks <username> [--limit=<limit>]
     commitments [options] about user <username>
     commitments [options] update task
     commitments [options] delete task
+    commitments [options] archive task
     commitments [options] poke task
     commitments --version
     commitments --help
@@ -29,6 +31,8 @@ The available commands are:
     poke task       Sends a notification to a user to ask them for a status
                     report about a specific task.
     delete task     Empty out a task, triggering a delete workflow.
+    archive task    Take a task and put it in the archive, this unhooks
+                    all shared links, but does not delete the source task.
 
 Environment Variables:
     $USER             Used to indicate who is doing the update, this is used in

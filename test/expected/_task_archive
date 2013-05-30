@@ -1,0 +1,14 @@
+[32mFULL_TASK_FILE="$COMMITMENTS_ROOT/b.yaml"
+TASK_FILE=$(basename $FULL_TASK_FILE)
+ID="b"
+OWNER="kwokoek@glgroup.com"
+cd "$COMMITMENTS_ROOT"
+USER_DIRECTORY=$(commitments add user 'igroff@glgroup.com')
+rm "./$USER_DIRECTORY/$TASK_FILE"
+USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
+rm "./$USER_DIRECTORY/$TASK_FILE"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" mv "/Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml" "/Users/wballard/commitments/___/kwokoek@glgroup.com/.archive/b.yaml"
+[39m
+[32mb archived[39m
+[{"what":"I am but a simple task","who":"kwokoek@glgroup.com","id":"54eaf965e01d0e7daa878a6b1c0df678"},{"id":"a","what":"I am but a simple task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1},"discussion":{"show":true,"comments":[{"who":"wballard@glgroup.com","when":"02/21/2013","what":"Yeah! Comments!","hash":"d93ba2138f5050aeb1b42122f36fa9b2"},{"who":"igroff@glgroup.com","when":"02/24/2013","what":"Told\\n\\nYou\\n\\nSo.","hash":"79a971a2463afe11f4a75a8862cdfab9"}]}}]
+[{"id":"b","what":"I am another task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1}}]
