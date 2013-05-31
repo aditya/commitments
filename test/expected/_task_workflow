@@ -1,22 +1,12 @@
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/b.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="b"
-OWNER="kwokoek@glgroup.com"
 cd "$COMMITMENTS_ROOT"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 [39m
-[32mb.yaml added[39m
-id: b
-what: I am another task
-tags: 
-  Tagged: 1
-  Important: 1
-  ABC/123: 1
-  ABC/Luv: 1
-who: "kwokoek@glgroup.com"
-links: 
-  "igroff@glgroup.com": 1
-  "wballard@glgroup.com": 1
-
+# On branch master
+nothing to commit, working directory clean
 [{"id":"a","what":"I am but a simple task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1},"discussion":{"show":true,"comments":[{"who":"wballard@glgroup.com","when":"02/21/2013","what":"Yeah! Comments!","hash":"d93ba2138f5050aeb1b42122f36fa9b2"},{"who":"igroff@glgroup.com","when":"02/24/2013","what":"Told\\n\\nYou\\n\\nSo.","hash":"79a971a2463afe11f4a75a8862cdfab9"}]}},{"id":"b","what":"I am another task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1}}]
 [32mPoking igroff@glgroup.com about b[39m
 This is a very fake do nothing test notify send igroff@glgroup.com --tags --link b --context /Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml --from howdy@hi.com
@@ -27,16 +17,16 @@ This is a very fake do nothing test notify send kwokoek@glgroup.com --tags --lin
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
-OWNER="kwokoek@glgroup.com"
 cd "$COMMITMENTS_ROOT"
 notify send  'kwokoek@glgroup.com'  --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'igroff@glgroup.com'  --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'wballard@glgroup.com'  --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 [39m
 This is a very fake do nothing test notify send kwokoek@glgroup.com --tags done --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 This is a very fake do nothing test notify send igroff@glgroup.com --tags done --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 This is a very fake do nothing test notify send wballard@glgroup.com --tags done --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-[32ma.yaml added[39m
 id: a
 what: I am but a simple task
 done: true
@@ -64,7 +54,6 @@ discussion:
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
-OWNER="kwokoek@glgroup.com"
 cd "$COMMITMENTS_ROOT"
 USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
 rm "./$USER_DIRECTORY/$TASK_FILE"
@@ -73,12 +62,13 @@ WHO="wballard@glgroup.com"
 notify send  'kwokoek@glgroup.com' --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'igroff@glgroup.com' --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'wballard@glgroup.com' --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 [39m
 This is a very fake do nothing test notify send wballard@glgroup.com --tags unshare --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 This is a very fake do nothing test notify send kwokoek@glgroup.com --tags reject --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 This is a very fake do nothing test notify send igroff@glgroup.com --tags reject --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 This is a very fake do nothing test notify send wballard@glgroup.com --tags reject --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-[32ma.yaml added[39m
 id: a
 what: I am but a simple task
 done: true
@@ -107,19 +97,19 @@ discussion:
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="a"
-OWNER="kwokoek@glgroup.com"
 cd "$COMMITMENTS_ROOT"
 WHO="igroff@glgroup.com"
 notify send  'kwokoek@glgroup.com' --tags "accept" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'igroff@glgroup.com' --tags "accept" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'kwokoek@glgroup.com' --tags "undone" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'igroff@glgroup.com' --tags "undone" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 [39m
 This is a very fake do nothing test notify send kwokoek@glgroup.com --tags accept --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 This is a very fake do nothing test notify send igroff@glgroup.com --tags accept --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 This is a very fake do nothing test notify send kwokoek@glgroup.com --tags undone --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 This is a very fake do nothing test notify send igroff@glgroup.com --tags undone --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-[32ma.yaml added[39m
 id: a
 what: I am but a simple task
 done: false
@@ -150,7 +140,6 @@ rm 'b.yaml'
 [32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/b.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="b"
-OWNER="kwokoek@glgroup.com"
 cd "$COMMITMENTS_ROOT"
 USER_DIRECTORY=$(commitments add user 'igroff@glgroup.com')
 rm "./$USER_DIRECTORY/$TASK_FILE"
@@ -158,8 +147,9 @@ notify send  'igroff@glgroup.com' --tags "unshare" --link "$ID" --context "$FULL
 USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
 rm "./$USER_DIRECTORY/$TASK_FILE"
 notify send  'wballard@glgroup.com' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 [39m
 This is a very fake do nothing test notify send igroff@glgroup.com --tags unshare --link b --context /Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml --from howdy@hi.com
 This is a very fake do nothing test notify send wballard@glgroup.com --tags unshare --link b --context /Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml --from howdy@hi.com
-[32mb.yaml added[39m
 [32mb deleted[39m

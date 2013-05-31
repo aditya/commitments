@@ -25,6 +25,7 @@ it to generate the workflow.
         prior_version = (yaml.safeLoad $("cd #{owner_directory}; git show HEAD:#{file_name}") or '') or {}
         diff =
             owner: task.who
+            owner_directory: owner_directory
             file_name: path.relative options.directory, full_file_name
             task_done: (current_version.done and (not prior_version.done)) or false
             task_undone: (prior_version.done and (not current_version.done)) or false
@@ -61,18 +62,6 @@ this will catch content changes as well as adds.
         | $SHELL", true
         fs.unlinkSync todo_file
 
-* Commit the task to git, this lets us see prior versions, and we will on get
-here if there were no errors causing an abort above
-
-        #running these without a subshell
-        $ "git", "--git-dir", "#{owner_directory}/.git",
-            "--work-tree", owner_directory,
-            "add", full_file_name
-        console.log "#{file_name} added".info
-        $ "git", "--git-dir", "#{owner_directory}/.git",
-            "--work-tree", owner_directory,
-            "commit", "--allow-empty-message", "--message", "''"
-
 The archive workflow:
 
     module.exports.archive = (task, options) ->
@@ -91,6 +80,4 @@ The archive workflow:
         fs.writeFileSync todo_file, todo
         shell "cat '#{todo_file}'
         | $SHELL", true
-        $ "git", "--git-dir", "#{owner_directory}/.git",
-            "--work-tree", owner_directory,
-            "commit", "--allow-empty-message", "--message", "''"
+        fs.unlinkSync todo_file
