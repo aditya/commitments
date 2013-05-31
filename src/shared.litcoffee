@@ -1,11 +1,22 @@
 Shared bits of update and delete, this is the 'workflow' step.
 
     yaml = require 'js-yaml'
-    fs = require 'fs'
+    fs = require 'fs-ext'
     path = require 'path'
     md5 = require 'MD5'
     _ = require 'lodash'
     add = require './add'
+
+Lock helper.
+
+    locked = (options, callback) ->
+        fs.open options.directory, 'r', (err, fd) ->
+            fs.flock fd, 'ex', (err) ->
+                if err
+                    console.error "Could not lock, error #{err}".error
+                else
+                    console.log "running workflow".info
+                    callback()
 
 The primary workflow:
 
@@ -55,18 +66,19 @@ this will catch content changes as well as adds.
 * Write out the diff generated script, and then shell it
 
         todo = render 'workflow', diff
-        console.log todo.info
         todo_file = "/tmp/#{md5(todo)}"
-        fs.writeFileSync todo_file, todo
-        shell "cat '#{todo_file}'
-        | $SHELL", true
-        fs.unlinkSync todo_file
+        locked options, ->
+            console.log todo.debug
+            fs.writeFileSync todo_file, todo
+            shell "$SHELL #{todo_file}", true
+            fs.unlinkSync todo_file
 
 The archive workflow:
 
     module.exports.archive = (task, options) ->
 
         options.username = task.who
+        task.owner = task.who
         task.owner_directory = owner_directory = add options, true
         task.file_name = file_name = "#{task.id}.yaml"
         task.full_file_name = path.resolve path.join(options.userDirectory, file_name)
@@ -75,9 +87,9 @@ The archive workflow:
 * Write out the diff generated script, and then shell it
 
         todo = render 'archive', task
-        console.log todo.info
         todo_file = "/tmp/#{md5(todo)}"
-        fs.writeFileSync todo_file, todo
-        shell "cat '#{todo_file}'
-        | $SHELL", true
-        fs.unlinkSync todo_file
+        locked options, ->
+            console.log todo.debug
+            fs.writeFileSync todo_file, todo
+            shell "$SHELL #{todo_file}", true
+            fs.unlinkSync todo_file

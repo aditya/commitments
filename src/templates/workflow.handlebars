@@ -1,6 +1,7 @@
 FULL_TASK_FILE="$COMMITMENTS_ROOT/{{{file_name}}}"
 TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="{{{current_version.id}}}"
+commitments add user '{{{owner}}}'
 
 cd "$COMMITMENTS_ROOT"
 
@@ -13,7 +14,8 @@ notify send  '{{{this}}}' --tags "share" --link "$ID" --context "$FULL_TASK_FILE
 {{/each}}
 {{#each removed_links}}
 USER_DIRECTORY=$(commitments add user '{{{this}}}')
-rm "./$USER_DIRECTORY/$TASK_FILE"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" rm -f "${TASK_FILE}"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
 notify send  '{{{this}}}' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 {{/each}}
 
@@ -49,3 +51,5 @@ notify send  '{{{this}}}' --tags "comment" --link "$ID/{{{../hash}}}" --context 
 
 git --git-dir "{{{owner_directory}}}/.git" --work-tree "{{{owner_directory}}}" add "${task_file}"
 git --git-dir "{{{owner_directory}}}/.git" --work-tree "{{{owner_directory}}}" commit --quiet --allow-empty-message --message ''
+
+exit 0

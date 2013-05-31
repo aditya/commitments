@@ -1,22 +1,3 @@
-[32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/b.yaml"
-TASK_FILE=$(basename $FULL_TASK_FILE)
-ID="b"
-cd "$COMMITMENTS_ROOT"
-USER_DIRECTORY=$(commitments add user 'igroff@glgroup.com')
-ln -s "../kwokoek@glgroup.com/$TASK_FILE" "./igroff@glgroup.com/${TASK_FILE}"
-git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" add "${TASK_FILE}"
-git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
-notify send  'igroff@glgroup.com' --tags "share" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
-USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
-ln -s "../kwokoek@glgroup.com/$TASK_FILE" "./wballard@glgroup.com/${TASK_FILE}"
-git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" add "${TASK_FILE}"
-git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
-notify send  'wballard@glgroup.com' --tags "share" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
-git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
-git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
-[39m
-This is a very fake do nothing test notify send igroff@glgroup.com --tags share --link b --context /Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send wballard@glgroup.com --tags share --link b --context /Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml --from howdy@hi.com
 id: b
 what: I am another task
 tags: 
@@ -29,9 +10,11 @@ links:
   "igroff@glgroup.com": 1
   "wballard@glgroup.com": 1
 
-[32mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
+[32mrunning workflow[39m
+[34mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/b.yaml"
 TASK_FILE=$(basename $FULL_TASK_FILE)
-ID="a"
+ID="b"
+commitments add user 'kwokoek@glgroup.com'
 cd "$COMMITMENTS_ROOT"
 USER_DIRECTORY=$(commitments add user 'igroff@glgroup.com')
 ln -s "../kwokoek@glgroup.com/$TASK_FILE" "./igroff@glgroup.com/${TASK_FILE}"
@@ -43,23 +26,13 @@ ln -s "../kwokoek@glgroup.com/$TASK_FILE" "./wballard@glgroup.com/${TASK_FILE}"
 git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" add "${TASK_FILE}"
 git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
 notify send  'wballard@glgroup.com' --tags "share" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'kwokoek@glgroup.com' --tags "comment" --link "$ID/d93ba2138f5050aeb1b42122f36fa9b2" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'igroff@glgroup.com' --tags "comment" --link "$ID/d93ba2138f5050aeb1b42122f36fa9b2" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'wballard@glgroup.com' --tags "comment" --link "$ID/d93ba2138f5050aeb1b42122f36fa9b2" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'kwokoek@glgroup.com' --tags "comment" --link "$ID/79a971a2463afe11f4a75a8862cdfab9" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'igroff@glgroup.com' --tags "comment" --link "$ID/79a971a2463afe11f4a75a8862cdfab9" --context "$FULL_TASK_FILE" --from "$USER"
-notify send  'wballard@glgroup.com' --tags "comment" --link "$ID/79a971a2463afe11f4a75a8862cdfab9" --context "$FULL_TASK_FILE" --from "$USER"
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
+exit 0
 [39m
-This is a very fake do nothing test notify send igroff@glgroup.com --tags share --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send wballard@glgroup.com --tags share --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send kwokoek@glgroup.com --tags comment --link a/d93ba2138f5050aeb1b42122f36fa9b2 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send igroff@glgroup.com --tags comment --link a/d93ba2138f5050aeb1b42122f36fa9b2 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send wballard@glgroup.com --tags comment --link a/d93ba2138f5050aeb1b42122f36fa9b2 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send kwokoek@glgroup.com --tags comment --link a/79a971a2463afe11f4a75a8862cdfab9 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send igroff@glgroup.com --tags comment --link a/79a971a2463afe11f4a75a8862cdfab9 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
-This is a very fake do nothing test notify send wballard@glgroup.com --tags comment --link a/79a971a2463afe11f4a75a8862cdfab9 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+kwokoek@glgroup.com
+This is a very fake do nothing test notify send igroff@glgroup.com --tags share --link b --context /Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send wballard@glgroup.com --tags share --link b --context /Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml --from howdy@hi.com
 id: a
 what: I am but a simple task
 tags: 
@@ -83,4 +56,39 @@ discussion:
       what: "Told\\n\\nYou\\n\\nSo."
       hash: 79a971a2463afe11f4a75a8862cdfab9
 
+[32mrunning workflow[39m
+[34mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
+TASK_FILE=$(basename $FULL_TASK_FILE)
+ID="a"
+commitments add user 'kwokoek@glgroup.com'
+cd "$COMMITMENTS_ROOT"
+USER_DIRECTORY=$(commitments add user 'igroff@glgroup.com')
+ln -s "../kwokoek@glgroup.com/$TASK_FILE" "./igroff@glgroup.com/${TASK_FILE}"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" add "${TASK_FILE}"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
+notify send  'igroff@glgroup.com' --tags "share" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
+ln -s "../kwokoek@glgroup.com/$TASK_FILE" "./wballard@glgroup.com/${TASK_FILE}"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" add "${TASK_FILE}"
+git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
+notify send  'wballard@glgroup.com' --tags "share" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'kwokoek@glgroup.com' --tags "comment" --link "$ID/d93ba2138f5050aeb1b42122f36fa9b2" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'igroff@glgroup.com' --tags "comment" --link "$ID/d93ba2138f5050aeb1b42122f36fa9b2" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'wballard@glgroup.com' --tags "comment" --link "$ID/d93ba2138f5050aeb1b42122f36fa9b2" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'kwokoek@glgroup.com' --tags "comment" --link "$ID/79a971a2463afe11f4a75a8862cdfab9" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'igroff@glgroup.com' --tags "comment" --link "$ID/79a971a2463afe11f4a75a8862cdfab9" --context "$FULL_TASK_FILE" --from "$USER"
+notify send  'wballard@glgroup.com' --tags "comment" --link "$ID/79a971a2463afe11f4a75a8862cdfab9" --context "$FULL_TASK_FILE" --from "$USER"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
+exit 0
+[39m
+kwokoek@glgroup.com
+This is a very fake do nothing test notify send igroff@glgroup.com --tags share --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send wballard@glgroup.com --tags share --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send kwokoek@glgroup.com --tags comment --link a/d93ba2138f5050aeb1b42122f36fa9b2 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send igroff@glgroup.com --tags comment --link a/d93ba2138f5050aeb1b42122f36fa9b2 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send wballard@glgroup.com --tags comment --link a/d93ba2138f5050aeb1b42122f36fa9b2 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send kwokoek@glgroup.com --tags comment --link a/79a971a2463afe11f4a75a8862cdfab9 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send igroff@glgroup.com --tags comment --link a/79a971a2463afe11f4a75a8862cdfab9 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+This is a very fake do nothing test notify send wballard@glgroup.com --tags comment --link a/79a971a2463afe11f4a75a8862cdfab9 --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 [{"id":"a","what":"I am but a simple task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1},"discussion":{"show":true,"comments":[{"who":"wballard@glgroup.com","when":"02/21/2013","what":"Yeah! Comments!","hash":"d93ba2138f5050aeb1b42122f36fa9b2"},{"who":"igroff@glgroup.com","when":"02/24/2013","what":"Told\\n\\nYou\\n\\nSo.","hash":"79a971a2463afe11f4a75a8862cdfab9"}]}}]

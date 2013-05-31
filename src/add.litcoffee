@@ -8,7 +8,7 @@ Adding a user is about creating a git repository. We'll be nice and make sure
 the user name is lower case, but otherwise is expected to be an email and won't
 get any additional escaping.
 
-    module.exports = (options, silent) ->
+    module.exports = (options, inline) ->
         username = options.username.toLowerCase()
         options.userDirectory = user_directory = path.join options.directory, username
         options.archiveDirectory = archive_directory = path.join user_directory, '.archive'
@@ -16,14 +16,15 @@ get any additional escaping.
             fs.mkdirSync user_directory
         if not fs.existsSync archive_directory
             fs.mkdirSync archive_directory
-        #just to discard the output here
-        $ "git", "--git-dir", "#{user_directory}/.git",
-            "--work-tree", user_directory,
-            "init", "--shared"
+        #just to discard the output here, and only bother to init a directory
+        if not inline
+            $ "git", "--git-dir", "#{user_directory}/.git",
+                "--work-tree", user_directory,
+                "init", "--shared"
 
 Just print the created directory, this way we can use this command in scripts.
 
-        if not silent
+        if not inline
             process.stdout.write path.relative options.directory, "#{user_directory}"
             process.stdout.write '\n'
 

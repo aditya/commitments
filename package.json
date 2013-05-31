@@ -10,6 +10,7 @@
     "lodash": "",
     "MD5": "",
     "handlebars": "",
+    "fs-ext": "",
     "shellscript": "git://github.com/wballard/shellscript.git"
   },
   "engine": {
