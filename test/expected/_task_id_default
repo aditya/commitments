@@ -1,6 +1,7 @@
 what: I am but a simple task
 who: "kwokoek@glgroup.com"
 id: 54eaf965e01d0e7daa878a6b1c0df678
+links: {}
 
 [32mrunning workflow[39m
 [34mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/54eaf965e01d0e7daa878a6b1c0df678.yaml"

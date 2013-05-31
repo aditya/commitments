@@ -36,8 +36,15 @@ key, which is to say, once a comment is edited, it is no longer the same.
             for comment in (task?.discussion?.comments or [])
                 comment.hash = md5(comment.what or '')
 
+Data cleanup, links -- which are email addresses, are case insensitive.
+
+            links = {}
+            for link, value of (task.links or {})
+                links[link.toLowerCase()] = value
+            task.links = links
+
 Write out the task in the owner's repository, classic tmp then rename to make
-sure any concurrent reads of the directory for yaml files don't get partials
+sure any concurrent reads of the directory for yaml files don't ge partials
 
             fs.writeFileSync full_file_name + ".tmp", yaml.safeDump(task)
             fs.renameSync full_file_name + ".tmp", full_file_name
