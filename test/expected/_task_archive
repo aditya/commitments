@@ -11,7 +11,7 @@ git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --
 USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
 git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" rm -f "${TASK_FILE}"
 git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
-git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" mv "/Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml" "/Users/wballard/commitments/___/kwokoek@glgroup.com/.archive/b.yaml"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" mv --force "/Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml" "/Users/wballard/commitments/___/kwokoek@glgroup.com/.archive/b.yaml"
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 exit 0
 [39m

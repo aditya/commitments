@@ -11,7 +11,7 @@ git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" rm -f "${
 git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
 {{/eachProperty}}
 
-git --git-dir "{{{owner_directory}}}/.git" --work-tree "{{{owner_directory}}}" mv "{{{full_file_name}}}" "{{{archive_file_name}}}"
+git --git-dir "{{{owner_directory}}}/.git" --work-tree "{{{owner_directory}}}" mv --force "{{{full_file_name}}}" "{{{archive_file_name}}}"
 git --git-dir "{{{owner_directory}}}/.git" --work-tree "{{{owner_directory}}}" commit --quiet --allow-empty-message --message ''
 
 exit 0
