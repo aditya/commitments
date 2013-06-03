@@ -6,6 +6,7 @@ Usage:
     commitments [options] list users
     commitments [options] list tasks <username> [--limit=<limit>]
     commitments [options] list archived tasks <username> [--limit=<limit>]
+    commitments [options] rank tasks <username> <taskid>...
     commitments [options] about user <username>
     commitments [options] update task
     commitments [options] delete task
@@ -24,7 +25,13 @@ The available commands are:
     init            Set up a new commitments repository system
     add user        Create a home directory and repository for a user
     list users      List all the users in a nice JSON array
-    list tasks      List all the tasks for a user in a nice JSON array
+    list tasks      List all the tasks for a user in a nice JSON array. Tasks
+                    are returned in rank order if present.
+    list archived tasks
+                    List all the tasks, but in the archive rather than live.
+    rank tasks      Set the stack rank for tasks. Just pass all the task ids
+                    as arguments to change the. Unspecified tasks go to the end
+                    of the list in create-date order.
     about user      Information on the user in a nice JSON format
     update task     This is the fundamental action, add/edit a task and run
                     and subsequent required workflow or actions. Reads stdin

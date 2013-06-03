@@ -4,6 +4,7 @@ List things, returning as JSON, this is used to fuel the user interface.
     path = require 'path'
     yaml = require 'js-yaml'
     add = require './add'
+    _ = require 'lodash'
 
 List all the user name directories. In practice this is a name of email addresses
 that we can then load into a client side user autocomplete index.
@@ -20,21 +21,38 @@ uses the shared links to just get the content of shared tasks.
 
     tasks = (options) ->
         add options, true
+        rank_file = path.join options.userDirectory, '.tasks.rank'
+        if fs.existsSync rank_file
+            rank = yaml.safeLoad(fs.readFileSync rank_file, 'utf8')
+        else
+            rank = []
+        rank_order = {}
+        _.forEach rank, (id, idx) ->
+            rank_order[id] = idx + 1
         if options.archived
             dir = options.archiveDirectory
         else
             dir = options.userDirectory
         ret = []
-        limit = Number(options['--limit'] or 1024)
         for name in fs.readdirSync dir
             if name.slice(-4) is 'yaml'
                 try
                     content = fs.readFileSync(path.join(dir, name), 'utf8')
                     ret.push yaml.safeLoad(content)
-                    if ret.length >= limit
-                        break
                 catch ex
                     console.error ex
+
+Ordering is by explicit rank, and failing that defaults to when the item
+was created.
+
+        sorter = (item) ->
+            rank_order[item.id] or item.when or Date.now()
+        ret = _.sortBy ret, sorter
+
+And emit items with a limit, this has a default value.
+
+        limit = Number(options['--limit'] or 1024)
+        ret = ret.slice 0, limit
         console.log JSON.stringify ret
 
     module.exports = (options) ->

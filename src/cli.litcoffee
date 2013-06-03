@@ -10,6 +10,7 @@ modules and the command sub modules here.
         delete: require './delete'
         about: require './about'
         archive: require './archive'
+        rank: require './rank'
     _ = require 'lodash'
     docopt = require 'docopt'
     handlebars = require 'handlebars'

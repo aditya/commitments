@@ -29,6 +29,9 @@ _task_create: _init
 	cat test/samples/1-001.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	#and with a limit
 	$(COMMITMENTS) list tasks wballard@glgroup.com --limit 1 | tee -a /tmp/$@
+	#and re-rank them
+	$(COMMITMENTS) rank tasks wballard@glgroup.com b a
+	$(COMMITMENTS) list tasks wballard@glgroup.com --limit 1 | tee -a /tmp/$@
 	$(DIFF) /tmp/$@ test/expected/$@
 
 _task_workflow: _init
