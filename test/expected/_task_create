@@ -26,6 +26,7 @@ ln -s "../kwokoek@glgroup.com/$TASK_FILE" "./wballard@glgroup.com/${TASK_FILE}"
 git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" add "${TASK_FILE}"
 git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
 notify send  'wballard@glgroup.com' --tags "share" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+POKER=""
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 exit 0
@@ -78,6 +79,7 @@ notify send  'wballard@glgroup.com' --tags "comment" --link "$ID/d93ba2138f5050a
 notify send  'kwokoek@glgroup.com' --tags "comment" --link "$ID/79a971a2463afe11f4a75a8862cdfab9" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'igroff@glgroup.com' --tags "comment" --link "$ID/79a971a2463afe11f4a75a8862cdfab9" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'wballard@glgroup.com' --tags "comment" --link "$ID/79a971a2463afe11f4a75a8862cdfab9" --context "$FULL_TASK_FILE" --from "$USER"
+POKER=""
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 exit 0

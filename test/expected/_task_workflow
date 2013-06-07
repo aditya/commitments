@@ -16,6 +16,7 @@ TASK_FILE=$(basename $FULL_TASK_FILE)
 ID="b"
 commitments add user 'kwokoek@glgroup.com'
 cd "$COMMITMENTS_ROOT"
+POKER=""
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 exit 0
@@ -24,12 +25,6 @@ kwokoek@glgroup.com
 # On branch master
 nothing to commit, working directory clean
 [{"id":"b","what":"I am another task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1}},{"id":"a","what":"I am but a simple task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1},"discussion":{"show":true,"comments":[{"who":"wballard@glgroup.com","when":"02/21/2013","what":"Yeah! Comments!","hash":"d93ba2138f5050aeb1b42122f36fa9b2"},{"who":"igroff@glgroup.com","when":"02/24/2013","what":"Told\\n\\nYou\\n\\nSo.","hash":"79a971a2463afe11f4a75a8862cdfab9"}]}}]
-[32mPoking IGROFF@glgroup.com about b[39m
-This is a very fake do nothing test notify send IGROFF@glgroup.com --tags --link b --context /Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml --from howdy@hi.com
-[32mPoking wballard@glgroup.com about b[39m
-This is a very fake do nothing test notify send wballard@glgroup.com --tags --link b --context /Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml --from howdy@hi.com
-[32mPoking kwokoek@glgroup.com about b[39m
-This is a very fake do nothing test notify send kwokoek@glgroup.com --tags --link b --context /Users/wballard/commitments/___/kwokoek@glgroup.com/b.yaml --from howdy@hi.com
 id: a
 what: I am but a simple task
 done: true
@@ -63,6 +58,7 @@ cd "$COMMITMENTS_ROOT"
 notify send  'kwokoek@glgroup.com'  --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'igroff@glgroup.com'  --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'wballard@glgroup.com'  --tags "done" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+POKER=""
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 exit 0
@@ -110,6 +106,7 @@ WHO="wballard@glgroup.com"
 notify send  'kwokoek@glgroup.com' --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'igroff@glgroup.com' --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'wballard@glgroup.com' --tags "reject" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+POKER=""
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 exit 0
@@ -156,6 +153,7 @@ notify send  'kwokoek@glgroup.com' --tags "accept" --link "$ID" --context "$FULL
 notify send  'igroff@glgroup.com' --tags "accept" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'kwokoek@glgroup.com' --tags "undone" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
 notify send  'igroff@glgroup.com' --tags "undone" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+POKER=""
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 exit 0
@@ -165,6 +163,95 @@ This is a very fake do nothing test notify send kwokoek@glgroup.com --tags accep
 This is a very fake do nothing test notify send igroff@glgroup.com --tags accept --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 This is a very fake do nothing test notify send kwokoek@glgroup.com --tags undone --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
 This is a very fake do nothing test notify send igroff@glgroup.com --tags undone --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from howdy@hi.com
+POKER kwokoek@glgroup.com
+id: a
+what: I am but a simple task
+done: false
+tags: 
+  Tagged: 1
+  Important: 1
+  ABC/123: 1
+  ABC/Luv: 1
+who: "kwokoek@glgroup.com"
+accept: 
+  "igroff@glgroup.com": 1
+links: 
+  "igroff@glgroup.com": 1
+poke: 
+  "igroff@glgroup.com": null
+  "kwokoek@glgroup.com": poker
+discussion: 
+  show: true
+  comments: 
+    - who: "wballard@glgroup.com"
+      when: 02/21/2013
+      what: "Yeah! Comments!"
+      hash: d93ba2138f5050aeb1b42122f36fa9b2
+    - who: "igroff@glgroup.com"
+      when: 02/24/2013
+      what: "Told\\n\\nYou\\n\\nSo."
+      hash: 79a971a2463afe11f4a75a8862cdfab9
+
+[32mrunning workflow[39m
+[34mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
+TASK_FILE=$(basename $FULL_TASK_FILE)
+ID="a"
+commitments add user 'kwokoek@glgroup.com'
+cd "$COMMITMENTS_ROOT"
+POKER="kwokoek@glgroup.com"
+notify send  'igroff@glgroup.com' --tags "poke" --link "$ID" --context "$FULL_TASK_FILE" --from "$POKER"
+notify send  'kwokoek@glgroup.com' --tags "poke" --link "$ID" --context "$FULL_TASK_FILE" --from "$POKER"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
+exit 0
+[39m
+kwokoek@glgroup.com
+This is a very fake do nothing test notify send igroff@glgroup.com --tags poke --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from kwokoek@glgroup.com
+This is a very fake do nothing test notify send kwokoek@glgroup.com --tags poke --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from kwokoek@glgroup.com
+POKER kwokoek@glgroup.com
+id: a
+what: I am but a simple task
+done: false
+tags: 
+  Tagged: 1
+  Important: 1
+  ABC/123: 1
+  ABC/Luv: 1
+who: "kwokoek@glgroup.com"
+accept: 
+  "igroff@glgroup.com": 1
+links: 
+  "igroff@glgroup.com": 1
+poke: 
+  "igroff@glgroup.com": null
+  "kwokoek@glgroup.com": poker
+  "wballard@glgroup.com": null
+discussion: 
+  show: true
+  comments: 
+    - who: "wballard@glgroup.com"
+      when: 02/21/2013
+      what: "Yeah! Comments!"
+      hash: d93ba2138f5050aeb1b42122f36fa9b2
+    - who: "igroff@glgroup.com"
+      when: 02/24/2013
+      what: "Told\\n\\nYou\\n\\nSo."
+      hash: 79a971a2463afe11f4a75a8862cdfab9
+
+[32mrunning workflow[39m
+[34mFULL_TASK_FILE="$COMMITMENTS_ROOT/kwokoek@glgroup.com/a.yaml"
+TASK_FILE=$(basename $FULL_TASK_FILE)
+ID="a"
+commitments add user 'kwokoek@glgroup.com'
+cd "$COMMITMENTS_ROOT"
+POKER="kwokoek@glgroup.com"
+notify send  'wballard@glgroup.com' --tags "poke" --link "$ID" --context "$FULL_TASK_FILE" --from "$POKER"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
+git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
+exit 0
+[39m
+kwokoek@glgroup.com
+This is a very fake do nothing test notify send wballard@glgroup.com --tags poke --link a --context /Users/wballard/commitments/___/kwokoek@glgroup.com/a.yaml --from kwokoek@glgroup.com
 [{"id":"b","what":"I am another task","tags":{"Tagged":1,"Important":1,"ABC/123":1,"ABC/Luv":1},"who":"kwokoek@glgroup.com","links":{"igroff@glgroup.com":1,"wballard@glgroup.com":1}}]
 rm 'b.yaml'
 [32mb deleted[39m
@@ -182,6 +269,7 @@ USER_DIRECTORY=$(commitments add user 'wballard@glgroup.com')
 git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" rm -f "${TASK_FILE}"
 git --git-dir "${USER_DIRECTORY}/.git" --work-tree "${USER_DIRECTORY}" commit --quiet --allow-empty-message --message ''
 notify send  'wballard@glgroup.com' --tags "unshare" --link "$ID" --context "$FULL_TASK_FILE" --from "$USER"
+POKER=""
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" add "${task_file}"
 git --git-dir "/Users/wballard/commitments/___/kwokoek@glgroup.com/.git" --work-tree "/Users/wballard/commitments/___/kwokoek@glgroup.com" commit --quiet --allow-empty-message --message ''
 exit 0

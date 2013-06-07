@@ -63,6 +63,26 @@ this will catch content changes as well as adds.
             if not prior_comments[comment.hash]
                 diff.updated_comments.push comment
 
+* Pokes, look for:
+    * anyone in the poke list
+    * that is not in the prior poke list
+    * or has a null and a prior value
+    * and as an aside, the 'poker'
+
+        prior_pokes = prior_version.poke or {}
+        current_pokes = current_version.poke or {}
+        poke = []
+        for user, pokevalue of current_pokes
+            if pokevalue is 'poker'
+                diff.poker = user
+                console.log 'POKER', user
+            if not (_.contains _.keys(prior_pokes), user)
+                poke.push user
+            else if not pokevalue and prior_pokes[user]
+                poke.push user
+        diff.poke = poke
+
+
 * Write out the diff generated script, and then shell it
 
         todo = render 'workflow', diff

@@ -38,11 +38,13 @@ _task_workflow: _init
 	#shared results, there are tasks
 	cat test/samples/001.yaml | $(COMMITMENTS) update task | tee /tmp/$@
 	$(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
-	cat test/samples/001.yaml | $(COMMITMENTS) poke task | tee -a /tmp/$@
 	#going through a simulated task workflow
 	cat test/samples/002.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	cat test/samples/003.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	cat test/samples/004.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
+	#and a poke sequence
+	cat test/samples/005.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
+	cat test/samples/006.yaml | $(COMMITMENTS) update task | tee -a /tmp/$@
 	#unshared results, no more tasks
 	$(COMMITMENTS) list tasks wballard@glgroup.com | tee -a /tmp/$@
 	#and a delete

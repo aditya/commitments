@@ -1,0 +1,29 @@
+#And now -- make undone
+id: 'a'
+what: 'I am but a simple task'
+done: false
+tags:
+    Tagged: 1
+    Important: 1
+    'ABC/123': 1
+    'ABC/Luv': 1
+who: 'kwokoek@glgroup.com'
+accept:
+    'igroff@glgroup.com': 1
+links:
+    'igroff@glgroup.com': 1
+#initial poke values
+poke:
+    'igroff@glgroup.com': null
+    'kwokoek@glgroup.com': 'poker'
+discussion:
+    show: true
+    comments:
+        -
+            who: 'wballard@glgroup.com'
+            when: '02/21/2013'
+            what: 'Yeah! Comments!'
+        -
+            who: 'igroff@glgroup.com'
+            when: '02/24/2013'
+            what: 'Told\n\nYou\n\nSo.'

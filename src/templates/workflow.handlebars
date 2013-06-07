@@ -49,6 +49,13 @@ notify send  '{{{this}}}' --tags "comment" --link "$ID/{{{../hash}}}" --context 
 {{/each}}
 {{/updated_comments}}
 
+POKER="{{{poker}}}"
+{{#poker}}
+{{#each ../poke}}
+notify send  '{{{this}}}' --tags "poke" --link "$ID" --context "$FULL_TASK_FILE" --from "$POKER"
+{{/each}}
+{{/poker}}
+
 git --git-dir "{{{owner_directory}}}/.git" --work-tree "{{{owner_directory}}}" add "${task_file}"
 git --git-dir "{{{owner_directory}}}/.git" --work-tree "{{{owner_directory}}}" commit --quiet --allow-empty-message --message ''
 

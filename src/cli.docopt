@@ -11,7 +11,6 @@ Usage:
     commitments [options] update task
     commitments [options] delete task
     commitments [options] archive task
-    commitments [options] poke task
     commitments --version
     commitments --help
 
@@ -35,8 +34,6 @@ The available commands are:
     about user      Information on the user in a nice JSON format
     update task     This is the fundamental action, add/edit a task and run
                     and subsequent required workflow or actions. Reads stdin
-    poke task       Sends a notification to a user to ask them for a status
-                    report about a specific task.
     delete task     Empty out a task, triggering a delete workflow.
     archive task    Take a task and put it in the archive, this unhooks
                     all shared links, but does not delete the source task.

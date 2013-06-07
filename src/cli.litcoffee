@@ -6,7 +6,6 @@ modules and the command sub modules here.
         list: require './list'
         update: require './update'
         init: require './init'
-        poke: require './poke'
         delete: require './delete'
         about: require './about'
         archive: require './archive'
